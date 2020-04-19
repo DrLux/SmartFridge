@@ -25,12 +25,11 @@ public class Event {
 	@Column(name = "expiry_date")
 	private Date expiry_date;
 
-	public Event() {
-	}
-
-	public Event(String url_img, String name) {
+	public Event(String name, long user_id, String url_img, Date date) {
 		this.name = name;
 		this.url_img = url_img;
+		this.user_id = user_id;
+		this.expiry_date = date;
 	}
 
 	public long getId() {
@@ -78,14 +77,12 @@ public class Event {
 		if (this == o) return true;
 		if (!(o instanceof Event)) return false;
 		Event event = (Event) o;
-		return user_id == event.user_id &&
-				name.equals(event.name) &&
-				expiry_date.equals(event.expiry_date);
+		return id == event.id;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(name, user_id, expiry_date);
+		return Objects.hash(id);
 	}
 
 	@Override

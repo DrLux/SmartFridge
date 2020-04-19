@@ -4,6 +4,7 @@ import com.smartfridge.model.Event;
 import com.smartfridge.model.Food;
 import com.smartfridge.repo.EventRepository;
 import com.smartfridge.repo.FoodRepository;
+import com.smartfridge.repo.ShopItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +20,12 @@ public class DbManagerController {
 	FoodRepository food_repository;
 	@Autowired
 	EventRepository event_repository;
+	@Autowired
+	ShopItemRepository shopitem_repository;
+
+	private current_user
+
+
 
 	@GetMapping(value = "/food/get")
 	public List<Food> getAllFoods() {

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Spring Boot - AJAX POST GET Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- With Front end port use this-->
+    <script src="/js/postrequest.js"></script>
+    <script src="/js/getrequest.js"></script>
+    <script src="/js/delete.js"></script>
+
+    <!-- With default port use this -->
+    <!--<script src="../static/js/postrequest.js"></script>-->
+    <!--<script src="../static/js/getrequest.js"></script>-->
+
+</head>
+<body>
+
+<div class="container">
+
+    <h3 style="color:blue">POST-GET AJAX Example</h3>
+
+    <div>
+        <form class="form-inline" style="margin:20px 20px 20px 20px" id="customerForm">
+            <div class="form-group">
+                <label for="name" style="margin-right:5px">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter Name"/>
+            </div>
+            <div class="form-group">
+                <label for="age" style="margin-left:20px; margin-right:5px">Age:</label>
+                <input type="text" class="form-control" id="age" placeholder="Enter Age"/>
+            </div>
+            <button type="submit" class="btn btn-default" style="margin-left:20px; margin-right:5px">Send to backend</button>
+        </form>
+    </div>
+
+    <div class="col-sm-7" id="postResultDiv"></div>
+
+    <div class="col-sm-7" style="margin:20px 0px 20px 0px">
+        <button id="getAllCustomerId" type="button" class="btn btn-primary">Show All Customers</button>
+        <div id="getResultDiv" style="padding:20px 10px 20px 50px">
+            <ul class="list-group">
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-sm-8" style="margin:20px 0px 20px 0px">
+        <button id="deleteAllCustomers" type="button" class="btn btn-primary">Delete All Customers</button>
+        <div id="deleteResultDiv" style="padding:20px 10px 20px 50px"></div>
+    </div>
+
+</div>
+</body>
+</html>

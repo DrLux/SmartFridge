@@ -33,20 +33,12 @@ public class Food {
 	@Column(name = "expiry_date")
 	private Date expiry_date;
 
-	@Column(name = "notes")
-	private String notes;
-
-	@Column(name = "automatic_gen")
-	private Boolean automatic_gen;
-
-
-
-	public Food() {
-	}
-
-	public Food(String url_img, String name) {
+	public Food(String name, long user_id, String url_img, Date date, Category category) {
 		this.name = name;
 		this.url_img = url_img;
+		this.user_id = user_id;
+		this.expiry_date = date;
+		this.category = category;
 	}
 
 	public long getId() {
@@ -97,39 +89,27 @@ public class Food {
 		this.expiry_date = expiry_date;
 	}
 
-	public String getNotes() {
-		return this.notes;
-	}
-
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}
-
-	public Boolean getAutomatic_gen() {
-		return this.automatic_gen;
-	}
-
-	public void setAutomatic_gen(Boolean automatic_gen) {
-		this.automatic_gen = automatic_gen;
-	}
-
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Food)) return false;
 		Food food = (Food) o;
-		return user_id == food.user_id &&
-				name.equals(food.name) &&
-				expiry_date.equals(food.expiry_date);
+		return id == food.id;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(name, category);
+		return Objects.hash(id);
 	}
 
 	@Override
 	public String toString() {
-		return "Food [id=" + id + ", name=" + name + "]";
+		return "Food{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", user_id=" + user_id +
+				", category=" + category +
+				", expiry_date=" + expiry_date +
+				'}';
 	}
 }

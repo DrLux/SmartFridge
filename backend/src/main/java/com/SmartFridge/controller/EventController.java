@@ -1,4 +1,4 @@
-
+/*
 package com.smartfridge.controller;
 
 import com.smartfridge.model.Event;
@@ -46,3 +46,4 @@ public class EventController {
 	}
 
 }
+*/
