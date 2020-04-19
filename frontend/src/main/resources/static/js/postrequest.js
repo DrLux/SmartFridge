@@ -1,48 +1,27 @@
-$( document ).ready(function() {
-	
-	// SUBMIT FORM
-    $("#customerForm").submit(function(event) {
-		// Prevent the form from submitting via the browser.
-		event.preventDefault();
-		ajaxPost();
-	});
-    
-    
-    function ajaxPost(){
-    	
-    	// PREPARE FORM DATA
-    	var formData = {
-    		name : $("#name").val(),
-    		age :  $("#age").val()
-    	}
+var oggetto =
+	{
+		"name": "Jason",
+		"url_img": "https://www.supermercato24.it/asset/smhd/28f2e/27ce9/a5c3d/2045729846_img.jpg",
+		"category": "a",
+		"expiry_date": "2020-04-18T22:00:00.000+0000"
+	}
 
-    	// DO POST
-    	$.ajax({
-			type : "POST",
+$(document).ready(function(){
+	$("#Postbutton").click(function(){
+		var str = $("#myInput").val();
+		$.ajax({
+			type: "POST",
 			contentType : "application/json",
-			url : "http://localhost:8081/api/food/create",
-			data : JSON.stringify(formData),
+			url: str,
+			data: JSON.stringify(oggetto),
 			dataType : 'json',
-			success : function(result) {
-					$("#postResultDiv").html("<p style='background-color:#7FA7B0; color:white; padding:20px 20px 20px 20px'>" +
-												"Post Successfully! <br>" +
-												"---> Customer's Info: Name = " +
-												result.name + " ,Age = " + result.age + "</p>");
-			},
-			error : function(e) {
-				$("#postResultDiv").html("<strong>Error</strong>");
-				alert("Error!")
-				console.log("ERROR: ", e);
-			}
-		});
-    	
-    	// Reset FormData after Posting
-    	resetData();
+			success: function(data, status){
+				$("#resultCall").append(status);
+				console.log("Data: " + data + "\nStatus: " + status);
+				console.log(data);
+				},
+			});
+	});
+});
 
-    }
-    
-    function resetData(){
-    	$("#name").val("");
-    	$("#age").val("");
-    }
-})
+

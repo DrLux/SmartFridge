@@ -1,7 +1,8 @@
 package com.smartfridge.model;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
+import java.text.DateFormat;
 import java.util.Objects;
 
 
@@ -24,6 +25,13 @@ public class Event {
 
 	@Column(name = "expiry_date")
 	private Date expiry_date;
+
+	public Event() {
+		this.name = "";
+		this.url_img = "";
+		this.user_id = 0;
+		this.expiry_date = null;
+	}
 
 	public Event(String name, long user_id, String url_img, Date date) {
 		this.name = name;

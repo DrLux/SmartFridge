@@ -15,6 +15,10 @@ public class Users {
     @Column(name = "name")
     private String name;
 
+    public Users (){
+        this.name = "";
+    }
+
     public Users (String name){
         this.name = name;
     }

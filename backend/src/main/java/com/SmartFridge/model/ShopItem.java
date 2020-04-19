@@ -26,6 +26,14 @@ public class ShopItem {
     @Column(name = "automatic_gen")
     private Boolean automatic_gen;
 
+    public ShopItem() {
+        this.name = "";
+        this.url_img = "";
+        this.user_id = 0;
+        this.notes = "";
+        this.automatic_gen = Boolean.TRUE;
+    }
+
     public ShopItem(String name, long user_id, String url_img, String notes, Boolean automatic_gen) {
         this.name = name;
         this.url_img = url_img;

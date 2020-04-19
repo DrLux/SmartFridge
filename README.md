@@ -1,3 +1,3 @@
 # SmartFridge
 
-taas 7 ottobre
+taas 21 ottobre (RIPASSO SERVLET)

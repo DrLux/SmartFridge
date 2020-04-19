@@ -6,7 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.sql.Date;
+import java.util.Date;
+import java.text.DateFormat;
 import java.util.Objects;
 
 
@@ -32,6 +33,14 @@ public class Food {
 
 	@Column(name = "expiry_date")
 	private Date expiry_date;
+
+	public Food(){
+		this.name = "";
+		this.url_img = "";
+		this.user_id = 0;
+		this.expiry_date = null;
+		this.category = Category.c;
+	}
 
 	public Food(String name, long user_id, String url_img, Date date, Category category) {
 		this.name = name;
