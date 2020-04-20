@@ -1,0 +1,103 @@
+[
+    {
+      "id": 1,
+      "name": "This is a JSON event",
+      "startdate": "2020-4-15",
+      "enddate": "2020-4-15",
+      "starttime": "12:00",
+      "endtime": "2:00",
+      "color": "#FFB128",
+      "url": "https://www.supermercato24.it/asset/smhd/650cd/5f744/c5c63/986645506_img.jpg"
+    },
+    {
+      "id": 2,
+      "name": "pomodori",
+      "startdate": "2020-4-20",
+      "enddate": "",
+      "starttime": "12:00",
+      "endtime": "2:00",
+      "color": "#EF44EF",
+      "url": "https://www.supermercato24.it/asset/smhd/81cca/01f6a/712be/943633612_img.jpg"
+    },
+    {
+      "id": 3,
+      "name": "zucchine",
+      "startdate": "2020-4-20",
+      "enddate": "",
+      "starttime": "12:00",
+      "endtime": "2:00",
+      "color": "#EF44EF",
+      "url": ""
+    },
+    {
+      "id": 4,
+      "name": "erica",
+      "startdate": "2020-4-20",
+      "enddate": "",
+      "starttime": "12:00",
+      "endtime": "2:00",
+      "color": "#EF44EF",
+      "url": ""
+    },
+    {
+      "id": 5,
+      "name": "cottone",
+      "startdate": "2020-4-20",
+      "enddate": "",
+      "starttime": "12:00",
+      "endtime": "2:00",
+      "color": "#EF44EF",
+      "url": ""
+    },
+    {
+      "id": 6,
+      "name": "luca",
+      "startdate": "2020-4-20",
+      "enddate": "",
+      "starttime": "12:00",
+      "endtime": "2:00",
+      "color": "#EF44EF",
+      "url": ""
+    },
+    {
+      "id": 7,
+      "name": "sorrentino",
+      "startdate": "2020-4-20",
+      "enddate": "",
+      "starttime": "12:00",
+      "endtime": "2:00",
+      "color": "#EF44EF",
+      "url": ""
+    },
+    {
+      "id": 8,
+      "name": "pasta",
+      "startdate": "2020-4-20",
+      "enddate": "",
+      "starttime": "12:00",
+      "endtime": "2:00",
+      "color": "#EF44EF",
+      "url": ""
+    },
+    {
+      "id": 9,
+      "name": "al",
+      "startdate": "2020-4-20",
+      "enddate": "",
+      "starttime": "12:00",
+      "endtime": "2:00",
+      "color": "#EF44EF",
+      "url": ""
+    },
+    {
+      "id": 10,
+      "name": "forno",
+      "startdate": "2020-4-20",
+      "enddate": "",
+      "starttime": "12:00",
+      "endtime": "2:00",
+      "color": "#EF44EF",
+      "url": ""
+    }
+]
+

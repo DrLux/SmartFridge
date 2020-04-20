@@ -1,44 +1,37 @@
-<!DOCTYPE HTML>
-
-<html>
+<!doctype html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset='utf-8'>
 <head>
-    <title>Spring Boot - AJAX POST GET Example</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- META ===================================================== -->
+    <title>Monthly - A jQuery Calendar Plugin</title>
+    <meta name="description" content="A method for responsive tables">
 
-    <!-- With Front end port use this-->
-    <script src="/webapp/static/js/postrequest.js"></script>
-    <script src="/webapp/static/js/getrequest.js"></script>
-    <script src="/webapp/static/js/delete.js"></script>
-
-    <!-- With default port use this -->
-    <script src="/js/postrequest.js"></script>
-    <script src="/js/getrequest.js"></script>
-    <script src="/js/delete.js"></script>
+    <!-- Favicon  ========================================== -->
 
 
+    <!-- CSS ====================================================== -->
+    <link rel="stylesheet" href="css/responsivetables.css">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/monthly.css">
+
+    <!-- JS ======================================================= -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/monthly.js"></script>
+    <script type="text/javascript" src="js/calendar_events.js"></script>
 </head>
+
 <body>
-
-
-<div class="container">
-
-    <h3 style="color:blue">POST-GET AJAX Example</h3>
-
-    <input type="text" id="myInput" placeholder="http://localhost:8081/api/food/"/>
-    <button id="Postbutton" type="button" class="btn btn-primary" onclick=>Post</button>
-    <button id="Getbutton" type="button" class="btn btn-primary">Get</button>
-    <button id="Delbutton" type="button" class="btn btn-primary">Delete</button>
-    <div class="col-sm-7" id="resultCall"></div>
-
-
-
-
-
-</div>
+    <div class="page">
+        <div style="width:100%; max-width:600px; display:inline-block;">
+            <div class="monthly" id="mycalendar"></div>
+        </div>
+    </div>
 </body>
 </html>
+

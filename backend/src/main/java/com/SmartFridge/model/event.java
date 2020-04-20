@@ -1,8 +1,6 @@
 package com.smartfridge.model;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.text.DateFormat;
 import java.util.Objects;
 
 
@@ -23,21 +21,31 @@ public class Event {
 	@Column(name = "url_img")
 	private String url_img;
 
-	@Column(name = "expiry_date")
-	private Date expiry_date;
+	@Column(name = "year")
+	private int year;
+
+	@Column(name = "month")
+	private int month;
+
+	@Column(name = "day")
+	private int day;
 
 	public Event() {
 		this.name = "";
 		this.url_img = "";
 		this.user_id = 0;
-		this.expiry_date = null;
+		this.year = 0;
+		this.month = 0;
+		this.day = 0;
 	}
 
-	public Event(String name, long user_id, String url_img, Date date) {
+	public Event(String name, long user_id, String url_img, int year, int month, int day) {
 		this.name = name;
 		this.url_img = url_img;
 		this.user_id = user_id;
-		this.expiry_date = date;
+		this.year = year;
+		this.month = month;
+		this.day = day;
 	}
 
 	public long getId() {
@@ -72,12 +80,28 @@ public class Event {
 		this.url_img = url_img;
 	}
 
-	public Date getExpiry_date() {
-		return this.expiry_date;
+	public int getYear() {
+		return year;
 	}
 
-	public void setExpiry_date(Date expiry_date) {
-		this.expiry_date = expiry_date;
+	public void setYear(int expiry_date_year) {
+		this.year = expiry_date_year;
+	}
+
+	public int getMonth() {
+		return month;
+	}
+
+	public void setMonth(int expiry_date_month) {
+		this.month = expiry_date_month;
+	}
+
+	public int getDay() {
+		return day;
+	}
+
+	public void setDay(int expiry_date_day) {
+		this.day = expiry_date_day;
 	}
 
 	@Override

@@ -6,8 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
-import java.text.DateFormat;
+import java.time.LocalDate;
 import java.util.Objects;
 
 
@@ -32,7 +31,7 @@ public class Food {
 	private Category category;
 
 	@Column(name = "expiry_date")
-	private Date expiry_date;
+	private LocalDate expiry_date;
 
 	public Food(){
 		this.name = "";
@@ -42,7 +41,7 @@ public class Food {
 		this.category = Category.c;
 	}
 
-	public Food(String name, long user_id, String url_img, Date date, Category category) {
+	public Food(String name, long user_id, String url_img, LocalDate date, Category category) {
 		this.name = name;
 		this.url_img = url_img;
 		this.user_id = user_id;
@@ -90,11 +89,11 @@ public class Food {
 		this.category = category;
 	}
 
-	public Date getExpiry_date() {
+	public LocalDate getExpiry_date() {
 		return this.expiry_date;
 	}
 
-	public void setExpiry_date(Date expiry_date) {
+	public void setExpiry_date(LocalDate expiry_date) {
 		this.expiry_date = expiry_date;
 	}
 
