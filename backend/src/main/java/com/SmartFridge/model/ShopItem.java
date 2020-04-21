@@ -26,20 +26,32 @@ public class ShopItem {
     @Column(name = "automatic_gen")
     private Boolean automatic_gen;
 
+    @Column(name = "delete_callback")
+    private String delete_callback;
+
+    @Column(name = "buy_callback")
+    private String buy_callback;
+
+
+
     public ShopItem() {
         this.name = "";
         this.url_img = "";
         this.user_id = 0;
         this.notes = "";
         this.automatic_gen = Boolean.TRUE;
+        this.delete_callback = "";
+        this.buy_callback = "";
     }
 
-    public ShopItem(String name, long user_id, String url_img, String notes, Boolean automatic_gen) {
+    public ShopItem(String name, long user_id, String url_img, String notes, Boolean automatic_gen,  String delete_callback, String buy_callback) {
         this.name = name;
         this.url_img = url_img;
         this.user_id = user_id;
         this.notes = notes;
         this.automatic_gen = automatic_gen;
+        this.buy_callback = buy_callback;
+        this.delete_callback = delete_callback;
     }
 
     //Constructor without Notes
@@ -48,6 +60,24 @@ public class ShopItem {
         this.url_img = url_img;
         this.user_id = user_id;
         this.automatic_gen = automatic_gen;
+        this.buy_callback = buy_callback;
+        this.delete_callback = delete_callback;
+    }
+
+    public String getDelete_callback() {
+        return delete_callback;
+    }
+
+    public void setDelete_callback(String delete_callback) {
+        this.delete_callback = delete_callback;
+    }
+
+    public String getBuy_callback() {
+        return buy_callback;
+    }
+
+    public void setBuy_callback(String buy_callback) {
+        this.buy_callback = buy_callback;
     }
 
     @Override

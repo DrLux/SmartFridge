@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+  <title>Spring Boot - AJAX POST GET Example</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- With Front end port use this-->
+  <script src="/webapp/static/js/postrequest.js"></script>
+  <script src="/webapp/static/js/getrequest.js"></script>
+  <script src="/webapp/static/js/delete.js"></script>
+
+  <!-- With default port use this -->
+  <script src="/js/postrequest.js"></script>
+  <script src="/js/getrequest.js"></script>
+  <script src="/js/delete.js"></script>
+
+
+</head>
+<body>
+
+
+<div class="container">
+
+  <h3 style="color:blue">POST-GET AJAX Example</h3>
+
+  <input type="text" id="myInput" placeholder="http://localhost:8081/api/food/"/>
+  <button id="Postbutton" type="button" class="btn btn-primary" onclick=>Post</button>
+  <button id="Getbutton" type="button" class="btn btn-primary">Get</button>
+  <button id="Delbutton" type="button" class="btn btn-primary">Delete</button>
+  <div class="col-sm-7" id="resultCall"></div>
+
+
+
+
+
+</div>
+</body>
+</html>
