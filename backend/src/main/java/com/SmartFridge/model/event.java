@@ -30,6 +30,10 @@ public class Event {
 	@Column(name = "day")
 	private int day;
 
+	@Column(name = "url_backend")
+	private String url_callback;
+
+
 	public Event() {
 		this.name = "";
 		this.url_img = "";
@@ -37,15 +41,25 @@ public class Event {
 		this.year = 0;
 		this.month = 0;
 		this.day = 0;
+		this.url_callback = "";
 	}
 
-	public Event(String name, long user_id, String url_img, int year, int month, int day) {
+	public Event(String name, long user_id, String url_img, int year, int month, int day, String url_callback) {
 		this.name = name;
 		this.url_img = url_img;
 		this.user_id = user_id;
 		this.year = year;
 		this.month = month;
 		this.day = day;
+		this.url_callback = url_callback;
+	}
+
+	public String getUrl_callback() {
+		return url_callback;
+	}
+
+	public void setUrl_callback(String url_backend) {
+		this.url_callback = url_backend;
 	}
 
 	public long getId() {

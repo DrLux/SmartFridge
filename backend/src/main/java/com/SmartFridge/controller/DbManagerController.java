@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -30,6 +31,8 @@ public class DbManagerController {
 	UsersRepository user_repository;
 
 	private long current_user_id = 1;
+	/// di debug
+	private long current_id = 48;
 
 
 	// FOOD
@@ -39,6 +42,9 @@ public class DbManagerController {
 		Food food = new Food("Pomodoro", this.current_user_id,"https://www.supermercato24.it/asset/smhd/28f2e/27ce9/a5c3d/2045729846_img.jpg", date, Category.a);
 		System.out.println("Adding new Food: "+food);
 		Food _food = food_repository.save(new Food(food.getName(), this.current_user_id, food.getUrl_img(), food.getExpiry_date(), food.getCategory()));
+
+		current_id = _food.getId()+1;
+
 		return _food;
 	}
 
@@ -67,17 +73,31 @@ public class DbManagerController {
 	@DeleteMapping("/food/remove/{id}")
 	public ResponseEntity<String> removeFood(@PathVariable("id") long id) {
 		System.out.println("Delete Food with ID = " + id );
-		food_repository.deleteById(id);
-		return new ResponseEntity<>("Food has been deleted!", HttpStatus.OK);
+		if (food_repository.existsById(id)) {
+			food_repository.deleteById(id);
+			return new ResponseEntity<>("Food has been deleted!", HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>("Food not found!", HttpStatus.OK);
+		}
 	}
 
 	// EVENT
 
-	@GetMapping(value = "/test/event/addEvent")
-	public Event testaddEvent() {
-		Event event = new Event("secondEvent",0,"https.jpg",2020,4,10);
+    /*@GetMapping(value = "/test")
+    public String test(HttpServletRequest request) {
+		String server_url = request.getRequestURL().toString().replaceAll(request.getRequestURI(),"");
+		return server_url;
+    }*/
+
+    @GetMapping(value = "/test/event/addEvent/{month}")
+	public Event testaddEvent(@PathVariable int month,HttpServletRequest request) {
+    	String server_url = request.getRequestURL().toString().replaceAll(request.getRequestURI(),"/api/event/remove/"+String.valueOf(current_id));
+		Event event = new Event("gennaio_event",0,"https.jpg",2020,month,20, server_url);
 		System.out.println("Adding new Event: "+ event);
-		Event _event = event_repository.save(new Event(event.getName(), this.current_user_id, event.getUrl_img(), event.getYear(), event.getMonth(), event.getDay() ));
+		Event _event = event_repository.save(new Event(event.getName(), this.current_user_id, event.getUrl_img(), event.getYear(), event.getMonth(), event.getDay(), event.getUrl_callback() ));
+
+		this.current_id = _event.getId()+1;
+
 		return _event;
 	}
 
@@ -99,16 +119,26 @@ public class DbManagerController {
 		return _event;
 	}
 
+
+	@DeleteMapping("/event/remove/{id}")
+	public ResponseEntity<String> removeEvent(@PathVariable("id") long id) {
+		System.out.println("Delete Food with ID = " + id );
+		if (event_repository.existsById(id)) {
+			event_repository.deleteById(id);
+			return new ResponseEntity<>("Event has been deleted!", HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>("Event not found!", HttpStatus.OK);
+		}
+	}
 	/*
 
 	@DeleteMapping("/customers/{id}")
 	public ResponseEntity<String> deleteCustomer(@PathVariable("id") long id) {
 		System.out.println("Delete Customer with ID = " + id + "...");
-
-		repository.deleteById(id);
-
+		event_repository.deleteById(id);
 		return new ResponseEntity<>("Customer has been deleted!", HttpStatus.OK);
 	}
+
 
 
 	@GetMapping(value = "customers/age/{age}")

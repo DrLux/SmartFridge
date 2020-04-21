@@ -177,55 +177,27 @@ Monthly 2.2.2 by Kevin Thornbloom is licensed under a Creative Commons Attributi
 
 		function addEvent(event, setMonth, setYear) {
 			// Year [0]   Month [1]   Day [2]
-			var fullStartDate = _getEventDetail(event, "startdate"),
-				fullEndDate = _getEventDetail(event, "enddate"),
-				startArr = fullStartDate.split("-"),
-				startYear = parseInt(startArr[0], 10),
-				startMonth = parseInt(startArr[1], 10),
-				startDay = parseInt(startArr[2], 10),
+			var	startYear = _getEventDetail(event, "year"),
+				startMonth = _getEventDetail(event, "month"),
+				startDay = _getEventDetail(event, "day"),
 				startDayNumber = startDay,
 				endDayNumber = startDay,
 				showEventTitleOnDay = startDay,
 				startsThisMonth = startMonth === setMonth && startYear === setYear,
 				happensThisMonth = startsThisMonth;
 
-			if(fullEndDate) {
-				// If event has an end date, determine if the range overlaps this month
-				var	endArr = fullEndDate.split("-"),
-					endYear = parseInt(endArr[0], 10),
-					endMonth = parseInt(endArr[1], 10),
-					endDay = parseInt(endArr[2], 10),
-					startsInPastMonth = startYear < setYear || (startMonth < setMonth && startYear === setYear),
-					endsThisMonth = endMonth === setMonth && endYear === setYear,
-					endsInFutureMonth = endYear > setYear || (endMonth > setMonth && endYear === setYear);
-				if(startsThisMonth || endsThisMonth || (startsInPastMonth && endsInFutureMonth)) {
-					happensThisMonth = true;
-					startDayNumber = startsThisMonth ? startDay : 1;
-					endDayNumber = endsThisMonth ? endDay : daysInMonth(setMonth, setYear);
-					showEventTitleOnDay = startsThisMonth ? startDayNumber : 1;
-				}
-			}
 			if(!happensThisMonth) {
 				return;
 			}
 
-			var startTime = _getEventDetail(event, "starttime"),
-				timeHtml = "",
-				eventURL = _getEventDetail(event, "url"),
+		var		eventURL = _getEventDetail(event, "url_callback"),
 				eventTitle = _getEventDetail(event, "name"),
 				eventClass = _getEventDetail(event, "class"),
-				eventColor = _getEventDetail(event, "color"),
+				eventColor = "#FFB128",
 				eventId = _getEventDetail(event, "id"),
 				customClass = eventClass ? " " + eventClass : "",
 				dayStartTag = "<div",
 				dayEndTags = "</span></div>";
-
-			if(startTime) {
-				var endTime = _getEventDetail(event, "endtime");
-				timeHtml = '<div><div class="monthly-list-time-start">' + formatTime(startTime) + "</div>"
-					+ (endTime ? '<div class="monthly-list-time-end">' + formatTime(endTime) + "</div>" : "")
-					+ "</div>";
-			}
 
 			if(options.linkCalendarToEventUrl && eventURL) {
 				dayStartTag = "<a" + attr("href", eventURL);
@@ -244,7 +216,7 @@ Monthly 2.2.2 by Kevin Thornbloom is licensed under a Creative Commons Attributi
 					+ attr("data-eventid", eventId)
 					+ (eventColor ? attr("style", "background:" + eventColor) : "")
 					+ attr("title", eventTitle)
-					+ ">" + eventTitle + " " + timeHtml + "</a>";
+					+ ">" + eventTitle + "</a>";
 			for(var index = startDayNumber; index <= endDayNumber; index++) {
 				var doShowTitle = index === showEventTitleOnDay;
 				// Add to calendar view
@@ -263,14 +235,6 @@ Monthly 2.2.2 by Kevin Thornbloom is licensed under a Creative Commons Attributi
 		}
 
 
-		/*
-		function addEvents(month, year) {
-			$.get(str, function (data, status) {
-				$("#resultCall").append(status);
-				console.log("Data: " + data + "\nStatus: " + status);
-				console.log(data);
-			});
-		}*/
 
 		function addEvents(month, year) {
 			if(options.events) {
@@ -281,7 +245,6 @@ Monthly 2.2.2 by Kevin Thornbloom is licensed under a Creative Commons Attributi
 				if(remoteUrl) {
 					// Replace variables for month and year to load from dynamic sources
 					var url = String(remoteUrl).replace("{month}", month).replace("{year}", year);
-					console.log("Sono nell' else e url: ", url,"mentre remoteUrl:", remoteUrl);
 					$.get(url, {now: $.now()}, function(data) {
 						addEventsFromString(data, month, year);
 					}, options.dataType).fail(function() {
@@ -298,8 +261,6 @@ Monthly 2.2.2 by Kevin Thornbloom is licensed under a Creative Commons Attributi
 				});
 			} else if (options.dataType === "json") {
 				$.each(events, function(index, event) {
-					console.log("in addEventsFromString index: ", index);
-					console.log("in addEventsFromString event: ", event);
 					addEvent(event, setMonth, setYear);
 				});
 			}
@@ -508,6 +469,20 @@ Monthly 2.2.2 by Kevin Thornbloom is licensed under a Creative Commons Attributi
 			// If there isn't a link, don't go anywhere
 			if(!href) {
 				event.preventDefault();
+			} else {
+				//Ajax call to delete element from server
+				event.preventDefault();
+				$.ajax({
+					url: href,
+					type: 'DELETE',
+					success:  function(){
+						$(this).remove();
+						setMonthly(currentMonth, currentYear);
+						//viewToggleButton();
+						//event.preventDefault();
+						//event.stopPropagation();
+					}
+				});
 			}
 		});
 

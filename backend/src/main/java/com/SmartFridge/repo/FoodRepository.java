@@ -10,7 +10,7 @@ import com.smartfridge.model.Food;
 
 public interface FoodRepository extends CrudRepository<Food, Long> {
 	List<Food> findByCategory(Category category);
-	@Override
-	void deleteById(Long id);
+	void deleteById(long id);
+	Boolean existsById(long id);
 }
 
