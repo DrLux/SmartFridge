@@ -1,0 +1,23 @@
+.label{
+    display: block;
+}
+
+#food_img{
+    max-width:150px;
+    max-height:150px;
+}
+
+#text_area{
+    min-height: 100%;
+    min-width: 60%;
+}
+
+#category{
+    min-height: 100%;
+    min-width: 70%;
+}
+
+#state{
+    min-height: 100%;
+    min-width: 70%;
+}
