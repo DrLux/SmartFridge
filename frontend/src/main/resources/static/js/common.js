@@ -1,13 +1,23 @@
 $(document).ready(function() {
-    openFoodSelector();
+    openFridge();
 });
 
+    function openFridge() {
+        $('#div_fridge').show();
+        closeShopList();
+        closeCalendar();
+        closeFoodSelector();
+    }
 
+    function closeFridge() {
+        $('#div_fridge').hide();
+    }
 
-function openFoodSelector() {
+    function openFoodSelector() {
         $('#div_foodselector').show();
         closeShopList();
         closeCalendar();
+        closeFridge();
         //$('#button_fridge').addClass("enable");
     }
 
@@ -20,6 +30,7 @@ function openFoodSelector() {
         $('#div_shoplist').show();
         closeCalendar();
         closeFoodSelector();
+        closeFridge();
     }
 
     function closeShopList() {
@@ -30,6 +41,7 @@ function openFoodSelector() {
         $('#div_calendar').show();
         closeShopList();
         closeFoodSelector();
+        closeFridge();
     }
 
     function closeCalendar() {

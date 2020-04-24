@@ -4,7 +4,7 @@ $(document).ready(function() {
     $("#state").select2({
         tags: true,
         selectOnClose: true,
-        placeholder: "Select food",
+        placeholder: "Insert food name",
         disabled: false,
         allowClear: true,
         //templateResult: dove vare quando ha selezionato
@@ -19,7 +19,7 @@ $(document).ready(function() {
 
     $("#category").select2({
         selectOnClose: true,
-        placeholder: "Select catgory",
+        placeholder: "Select food category",
         disabled: false,
 
     });

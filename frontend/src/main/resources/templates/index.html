@@ -70,12 +70,69 @@
         <nav class="navbar">
             <div class="container-fluid">
                 <div class="btn-group-lg">
-                    <button id="button_fridge"   type="button" onclick="openFoodSelector()" class="btn btn-primary"><i class="fa fa-home"></i> Fridge </button>
+                    <button id="button_fridge"   type="button" onclick="openFridge()" class="btn btn-primary"><i class="fa fa-home"></i> Fridge </button>
                     <button id="button_calendar" type="button" onclick="openCalendar()" class="btn btn-secondary"><i class="fa fa-calendar"></i> Calendar</button>
                     <button id="button_shoplist" type="button" onclick="openShopList()" class="btn btn-warning"><i class="fa fa-list-ul"></i> ShopList </button>
+                    <button id="button_foodselector" type="button" onclick="openFoodSelector()" class="btn btn-danger"><i class="fa fa-home"></i> Foodselector </button>
                 </div>
             </div>
         </nav>
+
+
+        <!--  Fridge -->
+        <div id="div_fridge">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="main-box clearfix">
+                        <div class="table-responsive">
+                            <table class="table user-list">
+                                <thead>
+                                <tr>
+                                    <th><span>Cibo</span></th>
+                                    <th><span>Note</span></th>
+                                    <th class="text-center"><span>Aggiunta</span></th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+
+                                <tr>
+                                    <td>
+                                        <img src="https://www.supermercato24.it/asset/smhd/28f2e/27ce9/a5c3d/2045729846_img.jpg" alt="">
+                                        <a class="user-link">Pomodoro</a>
+                                    </td>
+                                    <td>
+                                        maturi,quelli gialli
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="label label-success">Manuale</span>
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <a href="#" class="table-link">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-check fa-stack-1x fa-inverse"></i>
+									</span>
+                                        </a>
+                                        <a href="#" class="table-link danger">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+									</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <!-- FOODSELECTOR -->
         <div id="div_foodselector">
@@ -83,7 +140,7 @@
                 <div class="col-lg-12">
 
                     <div class="form-group">
-                        <label class="label">#1 # Dropdown Select with "data-live-search" </label>
+                        <label class="label">#1 Select the food category" </label>
                         <div class="input-group mb-3">
                             <select id="category" name="selected-category" class="js-example-basic-single" style="width: 100%;">
                                 <option></option>
@@ -107,7 +164,7 @@
                 <div class="col-lg-12 container-fluid">
 
                     <div class="form-group">
-                        <label class="label">#2 # select with insertion </label>
+                        <label class="label">#2 Insert food name </label>
                         <div class="input-group mb-3">
                             <select id="state" name="selected-food" class="js-example-basic-single" type="text" style="width: 100%;">
                                 <option></option>
@@ -124,7 +181,7 @@
                 <div class="col-lg-12">
 
                     <div class="form-group">
-                        <label class="label">#3 # add url image of food </label>
+                        <label class="label">#3 Add url image of food </label>
                         <div class="input-group mb-6">
                             <div class="input-group-append" style="width: 100%;">
                                 <input type="text" id="text_area" placeholder="inserisci immagine url" name="url_image" value="" style="width: 100%;">
@@ -143,9 +200,8 @@
                 <div class="col-lg-12">
 
                     <div class="form-group">
-                        <label>#4 # Datapicker" </label>
+                        <label>#4 Insert expiry date" </label>
                         <div class='input-group date' id='datetimepicker1'>
-                            <p>Date:  </p>
                             <input type="text" id="datepicker">
                         </div>
                     </div>
