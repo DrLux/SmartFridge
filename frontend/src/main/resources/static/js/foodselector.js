@@ -42,4 +42,9 @@ $(document).ready(function() {
         var imgSrc = document.getElementById('text_area').value;
         $('#food_img').attr('src', imgSrc);
     });
+
 });
+
+function closeFoodSelector() {
+    $('#food_container').hide();
+}

@@ -3,6 +3,14 @@
 <head>
     <meta charset="utf-8">
 
+    <!-- Nav bar -->
+    <!-- https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_navbar_btn&stacked=h -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- link per adding dinamico -->
     <!-- https://stackoverflow.com/questions/25428361/dynamically-add-item-to-jquery-select2-control-that-uses-ajax -->
     <!-- manuale: https://select2.org/placeholders -->
@@ -23,103 +31,17 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <!-- links al mio js -->
-    <script type="text/javascript" src="js/foodselector.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/foodselector.css"></link>
+    <script type="text/javascript" src="/js/foodselector.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/foodselector.css"></link>
 </head>
+<script>
+    $(function(){
+        $("#includedContent").load("foodselector");
+    });
+</script>
+</head>
+
 <body>
-
-
-
-<div class="container shadow" style="padding: 5rem; margin-top: 2rem;">
-    <div class="row">
-        <div class="col-lg-12">
-
-
-
-            <div class="form-group">
-                    <label class="label">#1 # Dropdown Select with "data-live-search" </label>
-                    <div class="input-group mb-3">
-                        <select id="category" name="selected-category" class="js-example-basic-single">
-                            <option></option>
-                            <option>Mango</option>
-                            <option>Orange</option>
-                            <option>Lychee</option>
-                            <option>Pineapple</option>
-                            <option>Apple</option>
-                            <option>Banana</option>
-                            <option>Grapes</option>
-                            <option>Water Melon</option>
-                        </select>
-                    </div>
-                </div>
-
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-lg-12">
-
-            <div class="form-group">
-                <label class="label">#2 # select with insertion </label>
-                    <div class="input-group mb-3">
-                        <select id="state" name="selected-food" class="js-example-basic-single" type="text">
-                            <option></option>
-                            <option value="AL">Alabama</option>
-                            <option value="WY">Wyoming</option>
-                        </select>
-                    </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-12">
-
-            <div class="form-group">
-                <label class="label">#3 # add url image of food </label>
-                <div class="input-group mb-3">
-                    <input type="text" id="text_area" placeholder="inserisci immagine url" name="url_image" value="">
-                    <div class="input-group-append">
-                        <button id="button_image" class="btn btn-outline-secondary" type="button">Ok</button>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <img src="" class="img-fluid" id="food_img" alt="">
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-12">
-
-            <div class="form-group">
-                <label>#4 # Datapicker" </label>
-                <div class='input-group date' id='datetimepicker1'>
-                    <p>Date:  </p>
-                    <input type="text" id="datepicker">
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center">
-                <button type="button" class="btn btn-primary align-bottom">Primary</button>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-
-
-
+<div id="includedContent"></div>
 </body>
 </html>
