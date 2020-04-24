@@ -45,6 +45,3 @@ $(document).ready(function() {
 
 });
 
-function closeFoodSelector() {
-    $('#food_container').hide();
-}

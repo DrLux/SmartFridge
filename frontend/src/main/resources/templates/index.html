@@ -1,13 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- META ===================================================== -->
+    <title>Monthly - A jQuery Calendar Plugin</title>
+    <meta name="description" content="A method for responsive tables">
+
+    <!-- Favicon  ========================================== -->
+
     <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
     <!-- Nav bar -->
     <!-- https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_navbar_btn&stacked=h -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -16,7 +26,6 @@
     <!-- manuale: https://select2.org/placeholders -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet"/>
 
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
@@ -30,18 +39,195 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <!-- links al mio js -->
-    <script type="text/javascript" src="/js/foodselector.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/foodselector.css"></link>
-</head>
-<script>
-    $(function(){
-        $("#includedContent").load("foodselector");
-    });
-</script>
+    <!-- Include common js -->
+    <script type="text/javascript" src="js/common.js"></script>
+
+    <!-- links to Foodselector -->
+    <script type="text/javascript" src="js/foodselector.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/foodselector.css"></link>
+
+    <!-- links to Shoplist -->
+    <link rel="stylesheet" href="css/shoplist.css">
+    <script type="text/javascript" src="js/shoplist.js"></script>
+
+    <!-- links to calendar -->
+    <!-- CSS ====================================================== -->
+    <link rel="stylesheet" href="css/responsivetables.css">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/monthly.css">
+
+    <!-- JS ======================================================= -->
+    <script type="text/javascript" src="js/monthly.js"></script>
+    <script type="text/javascript" src="js/calendar_events.js"></script>
+
 </head>
 
 <body>
-<div id="includedContent"></div>
+
+
+    <div class="container shadow" style="padding: 5rem; margin-top: 2rem; background: #f2f2f2">
+
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="btn-group-lg">
+                    <button id="button_fridge"   type="button" onclick="openFoodSelector()" class="btn btn-primary"><i class="fa fa-home"></i> Fridge </button>
+                    <button id="button_calendar" type="button" onclick="openCalendar()" class="btn btn-secondary"><i class="fa fa-calendar"></i> Calendar</button>
+                    <button id="button_shoplist" type="button" onclick="openShopList()" class="btn btn-warning"><i class="fa fa-list-ul"></i> ShopList </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- FOODSELECTOR -->
+        <div id="div_foodselector">
+            <div class="row align-self-center">
+                <div class="col-lg-12">
+
+                    <div class="form-group">
+                        <label class="label">#1 # Dropdown Select with "data-live-search" </label>
+                        <div class="input-group mb-3">
+                            <select id="category" name="selected-category" class="js-example-basic-single" style="width: 100%;">
+                                <option></option>
+                                <option>Mango</option>
+                                <option>Orange</option>
+                                <option>Lychee</option>
+                                <option>Pineapple</option>
+                                <option>Apple</option>
+                                <option>Banana</option>
+                                <option>Grapes</option>
+                                <option>Water Melon</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12 container-fluid">
+
+                    <div class="form-group">
+                        <label class="label">#2 # select with insertion </label>
+                        <div class="input-group mb-3">
+                            <select id="state" name="selected-food" class="js-example-basic-single" type="text" style="width: 100%;">
+                                <option></option>
+                                <option value="AL">Alabama</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="form-group">
+                        <label class="label">#3 # add url image of food </label>
+                        <div class="input-group mb-6">
+                            <div class="input-group-append" style="width: 100%;">
+                                <input type="text" id="text_area" placeholder="inserisci immagine url" name="url_image" value="" style="width: 100%;">
+                                <button id="button_image" class="btn btn-primary" type="button">Ok</button>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <img src="" class="img-fluid" id="food_img" alt="">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="form-group">
+                        <label>#4 # Datapicker" </label>
+                        <div class='input-group date' id='datetimepicker1'>
+                            <p>Date:  </p>
+                            <input type="text" id="datepicker">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-success btn-lg align-bottom">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--    ShopList -->
+        <div id="div_shoplist">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="main-box clearfix">
+                        <div class="table-responsive">
+                            <table class="table user-list">
+                                <thead>
+                                <tr>
+                                    <th><span>Cibo</span></th>
+                                    <th><span>Note</span></th>
+                                    <th class="text-center"><span>Aggiunta</span></th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+
+                                <tr>
+                                    <td>
+                                        <img src="https://www.supermercato24.it/asset/smhd/28f2e/27ce9/a5c3d/2045729846_img.jpg" alt="">
+                                        <a class="user-link">Pomodoro</a>
+                                    </td>
+                                    <td>
+                                        maturi,quelli gialli
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="label label-success">Manuale</span>
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <a href="#" class="table-link">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-check fa-stack-1x fa-inverse"></i>
+									</span>
+                                        </a>
+                                        <a href="#" class="table-link danger">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+									</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--    Calendar -->
+        <div id="div_calendar">
+            <div class="page">
+                <div style="width:100%; max-width:600px; display:inline-block;">
+                    <div class="monthly" id="mycalendar"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 </body>
 </html>
+

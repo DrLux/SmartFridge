@@ -1,6 +1,9 @@
 .label{
     display: block;
+    color: #000000;
 }
+
+
 
 #food_img{
     max-width:150px;
@@ -20,4 +23,8 @@
 #state{
     min-height: 100%;
     min-width: 70%;
+}
+
+#datetimepicker1{
+    display: block;
 }
