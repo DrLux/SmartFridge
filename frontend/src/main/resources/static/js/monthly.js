@@ -43,6 +43,8 @@ Monthly 2.2.2 by Kevin Thornbloom is licensed under a Creative Commons Attributi
 				weekStartsOnMonday = options.weekStart === "Mon" || options.weekStart === 1 || options.weekStart === "1",
 				primaryLanguageCode = locale.substring(0, 2).toLowerCase();
 
+
+
 		if (options.maxWidth !== false) {
 			$(parent).css("maxWidth", options.maxWidth);
 		}

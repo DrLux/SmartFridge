@@ -50,12 +50,20 @@ body{margin-top:20px;}
             padding-left: 20px;
         }
         .table thead > tr > th span {
-            border-bottom: 2px solid #ffc107;
             display: inline-block;
             padding: 0 5px;
             padding-bottom: 5px;
             font-weight: normal;
         }
+
+        #div_shoplist .table thead > tr > th span {
+            border-bottom: 2px solid #ffc107;
+        }
+
+        #div_fridge .table thead > tr > th span {
+            border-bottom: 2px solid #0062cc;
+        }
+
         .table thead > tr > th > a span {
             color: #344644;
         }
@@ -108,6 +116,12 @@ body{margin-top:20px;}
             color: #27b210;
             cursor: pointer;
         }
+
+
+        #div_fridge .table a.table-link {
+            color: #ffc107;
+        }
+
         .table a.table-link:hover {
             text-decoration: none;
             color: #24860d;

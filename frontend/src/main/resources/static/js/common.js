@@ -1,5 +1,12 @@
 $(document).ready(function() {
-    openFridge();
+    openShopList();
+
+    $('#mycalendar').monthly({
+        mode: 'event',
+        jsonUrl: 'http://localhost:8081/api/event/getEvents/{year}/{month}',
+        dataType: 'json',
+        xmlUrl: 'events.xml'
+    });
 });
 
     function openFridge() {
@@ -7,6 +14,7 @@ $(document).ready(function() {
         closeShopList();
         closeCalendar();
         closeFoodSelector();
+        jsfridge();
     }
 
     function closeFridge() {
@@ -18,6 +26,7 @@ $(document).ready(function() {
         closeShopList();
         closeCalendar();
         closeFridge();
+        jsfoodselector();
         //$('#button_fridge').addClass("enable");
     }
 
@@ -31,6 +40,7 @@ $(document).ready(function() {
         closeCalendar();
         closeFoodSelector();
         closeFridge();
+        jsshoplist();
     }
 
     function closeShopList() {

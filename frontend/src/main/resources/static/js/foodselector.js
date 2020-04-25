@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function jsfoodselector() {
     var prendi_url = 'https://api.github.com/search/repositories';
 
     $("#state").select2({
@@ -43,5 +43,5 @@ $(document).ready(function() {
         $('#food_img').attr('src', imgSrc);
     });
 
-});
+};
 

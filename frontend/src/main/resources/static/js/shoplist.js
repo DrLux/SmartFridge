@@ -1,8 +1,8 @@
-/*$(window).load( function() {
+function jsshoplist(){
 	var data = [
 		{"id":"0","name":"pomodori","url_img":"https://www.supermercato24.it/asset/smhd/28f2e/27ce9/a5c3d/2045729846_img.jpg","notes":"compra quelli gialli","automatic_gen":false,"buy_callback":"url","delete_callback":"url/deletebyid/0"},
 		{"id":"1","name":"zucchine","url_img":"https://www.supermercato24.it/asset/smhd/73dab/3daf8/ec220/1271065111_img.jpg","notes":"compra quelli gialli","automatic_gen":true,"buy_callback":"url","delete_callback":"url/deletebyid/1"},
-	];*/
+	];
 
 	var table = "";
 	$.each( data, function(index,item){
@@ -76,4 +76,4 @@
 			*/
 		}
 	});
-/*});*/
+};
