@@ -1,8 +1,10 @@
 package com.smartfridge.controller;
 
+import com.google.gson.Gson;
 import com.smartfridge.model.Category;
 import com.smartfridge.model.Event;
 import com.smartfridge.model.Food;
+import com.smartfridge.model.ShopItem;
 import com.smartfridge.repo.EventRepository;
 import com.smartfridge.repo.FoodRepository;
 import com.smartfridge.repo.ShopItemRepository;
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.*;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -34,30 +36,74 @@ public class DbManagerController {
 	/// di debug
 	private long current_id = 48;
 
+	// Get Categories
+	@GetMapping(value = "/firstCall")
+	public String getCategories(){
+		//Create categories
+		String[] categories = new String[]{
+										"Altro",
+										"Carne",
+										"Pesce",
+										"Pane e Pasta",
+										"Colazione",
+										"Uova,Latte e Derivati",
+										"Banco Frigo",
+										"Frutta",
+										"Surgelati",
+										"Nutella,Miele e Creme",
+										"Dolci e Snacks",
+										"Cibo in Scatola",
+										"Prodotti Vegani",
+										"Tisane,Caffé e Infusi",
+										"Igene e Cura Personale",
+										"Articoli per Tavola e Cucina",
+										"Articoli per Bambini",
+										"Articoli per Animali",
+										"Articoli per la Casa",
+										"Ingredienti e Condimenti",
+										"Bibite",
+										"Salumi e Formaggi",
+										"Sughi e Salse",
+										"Farmaci",
+										"Cancelleria",
+										"Legumi",
+										"Verdura",
+										"Spezie e Erbe",
+										"Semi e noci"};
+		//Create response object
+		Dictionary response = new Hashtable();
+
+		//Add data to response
+		response.put("Categories", categories);
+		response.put("Url_to_all_food", "http://localhost:8081/api//food/getAllFood");
+
+		//encode response to json
+		Gson gson = new Gson();
+		String json_response = gson.toJson(response);
+
+		return json_response;
+	}
 
 	// FOOD
 	@GetMapping(value = "/test/food/addFood")
 	public Food testaddFood() {
-		LocalDate date = LocalDate.of(2020,04,20);
-		Food food = new Food("Pomodoro", this.current_user_id,"https://www.supermercato24.it/asset/smhd/28f2e/27ce9/a5c3d/2045729846_img.jpg", date, Category.a);
+		Food food = new Food("Pomodoro", this.current_user_id, "https://www.supermercato24.it/asset/smhd/28f2e/27ce9/a5c3d/2045729846_img.jpg", 2020, 04, 1, "String category");
 		System.out.println("\nAdding new Food: "+food);
-		Food _food = food_repository.save(new Food(food.getName(), this.current_user_id, food.getUrl_img(), food.getExpiry_date(), food.getCategory()));
-
+		Food _food = food_repository.save(new Food(food.getName(), this.current_user_id, food.getUrl_img(), food.getYear(),food.getMonth(),food.getDay(), food.getCategory()));
 		current_id = _food.getId()+1;
-
 		return _food;
 	}
 
 	@PostMapping(value = "/food/addFood")
 	public Food addFood(@RequestBody Food food) {
 		System.out.println("\nAdding new Food: "+food);
-		Food _food = food_repository.save(new Food(food.getName(), this.current_user_id, food.getUrl_img(), food.getExpiry_date(), food.getCategory()));
+		Food _food = food_repository.save(new Food(food.getName(), this.current_user_id, food.getUrl_img(), food.getYear(),food.getMonth(),food.getDay(), food.getCategory()));
 		return _food;
 	}
 
 
 	@GetMapping(value = "/food/getFoodPerCategory/{category}")
-	public List<Food> getFoodPerCategory(@PathVariable Category category) {
+	public List<Food> getFoodPerCategory(@PathVariable String category) {
 		System.out.println("\nGet Foods per Category: " + category);
 		List<Food> foods = food_repository.findByCategory(category);
 		return foods;
@@ -130,6 +176,38 @@ public class DbManagerController {
 			return new ResponseEntity<>("Event not found!", HttpStatus.OK);
 		}
 	}
+
+	// Shoplist
+	@PostMapping("/shopitems/additem")
+	public ShopItem addItem(@RequestBody ShopItem item) {
+		System.out.println("\nAdding new Item: " + item);
+		ShopItem _item = shopitem_repository.save(new ShopItem( item.getName(),  this.current_user_id,  item.getUrl_img(), item.getAutomatic_gen()));
+		return _item;
+	}
+
+	@GetMapping("/shopitems/getItems")
+	public String getAllShopitems(){
+    	System.out.print("\n Getting all shop items!");
+		List<ShopItem> items = shopitem_repository.findAll();
+		//Create response object
+		Dictionary response = new Hashtable();
+
+		Iterator iterator = items.iterator();
+
+		//Add data to response
+		while(iterator.hasNext()) {
+			response.put("shopitem", iterator.next());
+			response.put("buy_callback", "url_buy_callback");
+			response.put("delete_callback", "url_delete_callback");
+		}
+
+
+		//encode response to json
+		Gson gson = new Gson();
+		String json_response = gson.toJson(response);
+		return json_response;
+	}
+
 	/*
 
 	@DeleteMapping("/customers/{id}")

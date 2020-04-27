@@ -9,7 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.smartfridge.model.Food;
 
 public interface FoodRepository extends CrudRepository<Food, Long> {
-	List<Food> findByCategory(Category category);
+	List<Food> findByCategory(String category);
 	void deleteById(long id);
 	Boolean existsById(long id);
 }

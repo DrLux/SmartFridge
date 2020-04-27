@@ -61,7 +61,6 @@
 
     <!-- JS ======================================================= -->
     <script type="text/javascript" src="js/monthly.js"></script>
-    <script type="text/javascript" src="js/calendar_events.js"></script>
 
 </head>
 
@@ -90,16 +89,8 @@
                     <div class="form-group">
                         <label class="label">#1 Select the food category" </label>
                         <div class="input-group mb-3">
-                            <select id="category" name="selected-category" class="js-example-basic-single" style="width: 100%;">
+                            <select id="fridge_category" name="selected-category" class="js-example-basic-single" style="width: 100%;">
                                 <option></option>
-                                <option>Mango</option>
-                                <option>Orange</option>
-                                <option>Lychee</option>
-                                <option>Pineapple</option>
-                                <option>Apple</option>
-                                <option>Banana</option>
-                                <option>Grapes</option>
-                                <option>Water Melon</option>
                             </select>
                         </div>
                     </div>
@@ -115,7 +106,7 @@
                                     <th><span>Send to Shoplist</span></th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="fridge_body">
 
 
                                 </tbody>
@@ -136,16 +127,9 @@
                     <div class="form-group">
                         <label class="label">#1 Select the food category" </label>
                         <div class="input-group mb-3">
-                            <select id="fridge_category" name="selected-category" class="js-example-basic-single" style="width: 100%;">
+                            <select id="category" name="selected-category" class="js-example-basic-single" style="width: 100%;">
                                 <option></option>
-                                <option>Mango</option>
-                                <option>Orange</option>
-                                <option>Lychee</option>
-                                <option>Pineapple</option>
-                                <option>Apple</option>
-                                <option>Banana</option>
-                                <option>Grapes</option>
-                                <option>Water Melon</option>
+
                             </select>
                         </div>
                     </div>
@@ -160,10 +144,8 @@
                     <div class="form-group">
                         <label class="label">#2 Insert food name </label>
                         <div class="input-group mb-3">
-                            <select id="state" name="selected-food" class="js-example-basic-single" type="text" style="width: 100%;">
+                            <select id="selection_food" name="selected-food" class="js-example-basic-single" type="text" style="width: 100%;">
                                 <option></option>
-                                <option value="AL">Alabama</option>
-                                <option value="WY">Wyoming</option>
                             </select>
                         </div>
                     </div>
@@ -207,7 +189,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-center">
-                        <button type="button" class="btn btn-success btn-lg align-bottom">Send</button>
+                        <button id="send_button" onclick="send_to_server()" type="button" class="btn btn-success btn-lg align-bottom">Send</button>
                     </div>
                 </div>
             </div>

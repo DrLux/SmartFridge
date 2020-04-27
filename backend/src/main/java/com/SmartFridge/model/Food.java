@@ -28,24 +28,34 @@ public class Food {
 	private String url_img;
 
 	@Column(name = "category")
-	private Category category;
+	private String category;
 
-	@Column(name = "expiry_date")
-	private LocalDate expiry_date;
+	@Column(name = "year")
+	private int year;
+
+	@Column(name = "month")
+	private int month;
+
+	@Column(name = "day")
+	private int day;
 
 	public Food(){
 		this.name = "";
 		this.url_img = "";
 		this.user_id = 0;
-		this.expiry_date = null;
-		this.category = Category.c;
+		this.year = 0;
+		this.month = 0;
+		this.day = 0;
+		this.category = "";
 	}
 
-	public Food(String name, long user_id, String url_img, LocalDate date, Category category) {
+	public Food(String name, long user_id, String url_img, int year, int month, int day, String category) {
 		this.name = name;
 		this.url_img = url_img;
 		this.user_id = user_id;
-		this.expiry_date = date;
+		this.year = year;
+		this.month = month;
+		this.day = day;
 		this.category = category;
 	}
 
@@ -81,20 +91,36 @@ public class Food {
 		this.url_img = url_img;
 	}
 
-	public Category getCategory() {
-		return this.category;
+	public int getYear() {
+		return year;
 	}
 
-	public void setCategory(Category category) {
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	public int getMonth() {
+		return month;
+	}
+
+	public void setMonth(int month) {
+		this.month = month;
+	}
+
+	public int getDay() {
+		return day;
+	}
+
+	public void setDay(int day) {
+		this.day = day;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
 		this.category = category;
-	}
-
-	public LocalDate getExpiry_date() {
-		return this.expiry_date;
-	}
-
-	public void setExpiry_date(LocalDate expiry_date) {
-		this.expiry_date = expiry_date;
 	}
 
 	@Override
@@ -117,7 +143,6 @@ public class Food {
 				", name='" + name + '\'' +
 				", user_id=" + user_id +
 				", category=" + category +
-				", expiry_date=" + expiry_date +
 				'}';
 	}
 }
