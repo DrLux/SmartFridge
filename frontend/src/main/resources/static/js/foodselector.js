@@ -48,7 +48,6 @@ function send_to_server(){
     if (category && date && food && imgSrc ){
         var splitted_date = date.split('-'); //0 = day, 1 month, 2 year
 
-
         var json_data = { "name":food[0].text,
             "url_img":imgSrc,
             "year":splitted_date[2],
@@ -93,13 +92,20 @@ function reset_foodselector(){
     food = null;
     imgSrc = null;
 
-    $("#category").val('Select food category').trigger('change');
-    $("#selection_food").val('Insert food name').trigger('change');
+
+    $("#category").select2({ placeholder: 'Select food category' });
+    $("#selection_food").select2({ placeholder: 'Insert food name' });
 
     document.getElementById('datepicker').value = null;
     document.getElementById('text_area').value = null;
     $('#food_img').attr('src', "");
     $("#send_button").prop("disabled", true);
+
+    //Enable nav bar buttons
+    $("#button_fridge").prop("disabled", false);
+    $("#button_calendar").prop("disabled", false);
+    $("#button_shoplist").prop("disabled", false);
+    $("#button_foodselector").prop("disabled", false);
 
 }
 

@@ -1,13 +1,9 @@
 function jsfridge(category){
     url_temporaneo = "http://localhost:8081/api/food/getFoodPerCategory/"+category;
-    console.log(url_temporaneo);
-    alert(url_temporaneo);
     var fridge_table = "";
     $.get( url_temporaneo, function( data ) {
-        console.log(data);
         for (i = 0; i < data.length; i++) {
             var item = data[i];
-            console.log(item.id);
             fridge_table += '<tr id =itemId_' + item.id + ' >';
 
             // Foto e nome Item
@@ -32,7 +28,7 @@ function jsfridge(category){
             fridge_table += '<a href=' + 'url_callback' +' class="table-link">';
             fridge_table += '\t<span class="fa-stack" style="width: 50%;">\n';
             fridge_table += '		<i class="fa fa-square fa-stack-2x"></i>';
-            fridge_table += '		<i class="fa fa-list-ul fa-stack-1x fa-inverse"></i>';
+            fridge_table += '		<i class="to_shoplist_btn fa fa-list-ul fa-stack-1x fa-inverse"></i>'; //
             fridge_table += '	</span>';
             fridge_table += '</a>';
 
@@ -42,53 +38,20 @@ function jsfridge(category){
             //End each element
             fridge_table += '</tr>';
         }
-        console.log(fridge_table);
         $("#fridge_body").html(fridge_table);
     });
 
+    // Delete an item of a list
+    $(document.body).on("click", ".to_shoplist_btn", function (event) {
+        event.preventDefault();
+        var add_url = $(this).parent().parent().attr('href');
+        $(this).parent().parent().remove();
+        $.get( add_url, function( ) {
+            alert("Added to shoplist!");
+        });
+    });
 
-
-
-    /*var fridge_data = [
-        {
-            "id": "0",
-            "name": "pomodori",
-            "url_img": "https://www.supermercato24.it/asset/smhd/28f2e/27ce9/a5c3d/2045729846_img.jpg",
-            "expiry_date": "01/02/2020",
-            "category": "latticini",
-            "toshoplist_callback": "url/deletebyid/0"
-        },
-        {
-            "id": "0",
-            "name": "zucchine",
-            "url_img": "https://www.supermercato24.it/asset/smhd/73dab/3daf8/ec220/1271065111_img.jpg",
-            "expiry_date": "01/02/2020",
-            "category": "carne",
-            "toshoplist_callback": "url/deletebyid/0"
-        },
-    ];*/
 };
 
-// Delete an item of a list
-$(document.body).on("click", ".fa-trash-o", function (event) {
-    console.log("in ajax");
-    event.preventDefault();
-    var href = $(this).parent().parent().attr("href");
-    if (href) {
-        //Remove item on screen
-        var id_to_remove = '#itemId_' + href.slice(-1);
-        $(id_to_remove).remove();
 
-        //Remove item on server
-        /*$.ajax({
-            url: href,
-            type: 'DELETE',
-            success:  function(){
-                $(this).remove();
-                setMonthly(currentMonth, currentYear);
-            }
-        });
-        */
-    }
-});
 

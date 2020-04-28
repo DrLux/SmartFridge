@@ -47,4 +47,20 @@ public class FridgeService {
         return  response;
     }
 
+    @GetMapping("/to_shoplist/{id}")
+    public void toShoplist(@PathVariable("id") long id){
+        //creare un get in dbmanager e richiamarlo da qui
+        ///il get prende l' id del food e ne estrapola i dati per creare l' item
+
+        System.out.print("\n Asking DB_manger to add Food to shopList");
+        String uri = "/";
+        response =  this.client
+                .method(HttpMethod.GET)
+                .uri(db_manager_url+uri)
+                .retrieve()
+                .bodyToMono(List.class)
+                .block();
+    }
+
+
 }

@@ -103,6 +103,7 @@ $(document).ready(function() {
     }
 
     function closeShopList() {
+        $("tbody").html("");
         $('#div_shoplist').hide();
     }
 

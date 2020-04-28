@@ -1,5 +1,7 @@
 package com.smartfridge.model;
 
+import org.springframework.context.annotation.ComponentScan;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -26,6 +28,9 @@ public class ShopItem {
     @Column(name = "automatic_gen")
     private Boolean automatic_gen;
 
+    @Column(name = "category")
+    private String category;
+
 
     public ShopItem() {
         this.name = "";
@@ -33,24 +38,17 @@ public class ShopItem {
         this.user_id = 0;
         this.notes = "";
         this.automatic_gen = Boolean.TRUE;
+        this.category = "";
     }
 
-    public ShopItem(String name, long user_id, String url_img, String notes, Boolean automatic_gen) {
+    public ShopItem(String name, long user_id, String url_img, String notes, Boolean automatic_gen, String category) {
         this.name = name;
         this.url_img = url_img;
         this.user_id = user_id;
         this.notes = notes;
         this.automatic_gen = automatic_gen;
+        this.category = category;
     }
-
-    //Constructor without Notes
-    public ShopItem(String name, long user_id, String url_img, Boolean automatic_gen) {
-        this.name = name;
-        this.url_img = url_img;
-        this.user_id = user_id;
-        this.automatic_gen = automatic_gen;
-    }
-
 
     @Override
     public boolean equals(Object o) {
@@ -73,6 +71,14 @@ public class ShopItem {
                 ", user_id=" + user_id +
                 ", automatic_gen=" + automatic_gen +
                 '}';
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public long getId() {

@@ -181,7 +181,7 @@ public class DbManagerController {
 	@PostMapping("/shopitems/additem")
 	public ShopItem addItem(@RequestBody ShopItem item) {
 		System.out.println("\nAdding new Item: " + item);
-		ShopItem _item = shopitem_repository.save(new ShopItem( item.getName(),  this.current_user_id,  item.getUrl_img(), item.getAutomatic_gen()));
+		ShopItem _item = shopitem_repository.save(new ShopItem( item.getName(),  this.current_user_id,  item.getUrl_img(), item.getNotes(), item.getAutomatic_gen(), item.getCategory()));
 		return _item;
 	}
 
@@ -194,11 +194,19 @@ public class DbManagerController {
 
 		Iterator iterator = items.iterator();
 
+		int idx = 0;
+
 		//Add data to response
 		while(iterator.hasNext()) {
-			response.put("shopitem", iterator.next());
-			response.put("buy_callback", "url_buy_callback");
-			response.put("delete_callback", "url_delete_callback");
+			//create item -> adding callbacks url
+			Dictionary item = new Hashtable();
+			ShopItem si = (ShopItem) iterator.next();
+			item.put("shopitem", si);
+			//item.put("buy_callback", "url_buy_callback");
+			item.put("delete_callback", "http://localhost:8081/api/shopitem/remove/"+si.getId());
+
+			response.put(idx, item);
+			idx++;
 		}
 
 
@@ -206,6 +214,18 @@ public class DbManagerController {
 		Gson gson = new Gson();
 		String json_response = gson.toJson(response);
 		return json_response;
+	}
+
+	@DeleteMapping("/shopitem/remove/{id}")
+	public ResponseEntity<ShopItem> removeShopitem(@PathVariable("id") long id) {
+		System.out.println("\nDelete ShopItem with ID = " + id );
+		if (shopitem_repository.existsById(id)) {
+			ShopItem _item = shopitem_repository.getById(id);
+			shopitem_repository.deleteById(id);
+			return new ResponseEntity<>( _item, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>( new ShopItem(), HttpStatus.OK);
+		}
 	}
 
 	/*
