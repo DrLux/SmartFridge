@@ -1,8 +1,8 @@
 /*
 Monthly 2.2.2 by Kevin Thornbloom is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
 */
-
 (function ($) {
+
 	"use strict";
 	$.fn.extend({
 		monthly: function(customOptions) {
@@ -247,7 +247,7 @@ Monthly 2.2.2 by Kevin Thornbloom is licensed under a Creative Commons Attributi
 				if(remoteUrl) {
 					// Replace variables for month and year to load from dynamic sources
 					var url = String(remoteUrl).replace("{month}", month).replace("{year}", year);
-					$.get(url, {now: $.now()}, function(data) {
+					$.get(url, function(data) {
 						addEventsFromString(data, month, year);
 					}, options.dataType).fail(function() {
 						console.error("Monthly.js failed to import " + remoteUrl + ". Please check for the correct path and " + options.dataType + " syntax.");

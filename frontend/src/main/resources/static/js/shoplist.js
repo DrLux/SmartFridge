@@ -40,7 +40,7 @@ function jsshoplist(){
 			table += '<a href=' + item.delete_callback +' class="table-link">';
 			table += '		<span class="fa-stack">\n        ';
 			table += '			<i class="fa fa-square fa-stack-2x"></i>';
-			table += '			<i id='+item.shopitem.id+' class="fa fa-check fa-stack-1x fa-inverse"></i>';
+			table += '			<i class="fa fa-check fa-stack-1x fa-inverse"></i>';
 			table += '	</span>';
 			table += '</a>';
 
@@ -61,46 +61,7 @@ function jsshoplist(){
 		$("tbody").html(table);
 	});
 
-	$(document.body).on("click", ".fa-trash-o", function (event) {
-		event.preventDefault();
-		var delete_url = $(this).parent().parent().attr('href');
-		//Remove item on screen
-		$(this).parent().parent().parent().parent().remove();
-
-		//fill foodselector forms
-		$.ajax({
-			url: delete_url,
-			type: 'DELETE',
-			success: function (response) {
-				openFoodSelector();
-
-				$("#button_fridge").prop("disabled", true);
-				$("#button_calendar").prop("disabled", true);
-				$("#button_shoplist").prop("disabled", true);
-				$("#button_foodselector").prop("disabled", true);
-
-				$('#div_foodselector').show();
 
 
-				category = response.category;
-				food = response.name;
-				imgSrc = response.url_img;
-
-				$("#selection_food").select2({ placeholder: food });
-				$("#category").select2({ placeholder: category });
-
-
-				$("#category").prop("disabled", true);
-				$("#selection_food").prop("disabled", true);
-
-				$('#button_image').prop("disabled", true);
-				document.getElementById('text_area').value = imgSrc;
-				$('#text_area').prop("disabled", true);
-
-				$('#food_img').attr('src', imgSrc);
-
-			}
-		});
-	});
 };
 

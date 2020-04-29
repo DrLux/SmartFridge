@@ -65,7 +65,6 @@ public class DbManagerController {
 										"Salumi e Formaggi",
 										"Sughi e Salse",
 										"Farmaci",
-										"Cancelleria",
 										"Legumi",
 										"Verdura",
 										"Spezie e Erbe",
@@ -85,28 +84,50 @@ public class DbManagerController {
 	}
 
 	// FOOD
-	@GetMapping(value = "/test/food/addFood")
-	public Food testaddFood() {
-		Food food = new Food("Pomodoro", this.current_user_id, "https://www.supermercato24.it/asset/smhd/28f2e/27ce9/a5c3d/2045729846_img.jpg", 2020, 04, 1, "String category");
-		System.out.println("\nAdding new Food: "+food);
-		Food _food = food_repository.save(new Food(food.getName(), this.current_user_id, food.getUrl_img(), food.getYear(),food.getMonth(),food.getDay(), food.getCategory()));
-		current_id = _food.getId()+1;
-		return _food;
-	}
 
 	@PostMapping(value = "/food/addFood")
 	public Food addFood(@RequestBody Food food) {
 		System.out.println("\nAdding new Food: "+food);
 		Food _food = food_repository.save(new Food(food.getName(), this.current_user_id, food.getUrl_img(), food.getYear(),food.getMonth(),food.getDay(), food.getCategory()));
+		Event _event = event_repository.save(new Event( food.getName(), this.current_user_id, food.getUrl_img(), food.getYear(), food.getMonth(), food.getDay(), "http://localhost:8081/api/event/remove/"+(_food.getId()+1)));
 		return _food;
 	}
 
 
 	@GetMapping(value = "/food/getFoodPerCategory/{category}")
-	public List<Food> getFoodPerCategory(@PathVariable String category) {
+	public String getFoodPerCategory(@PathVariable String category) {
 		System.out.println("\nGet Foods per Category: " + category);
-		List<Food> foods = food_repository.findByCategory(category);
-		return foods;
+		List<Food> foods;
+		if (category.equals("all")) {
+			foods = food_repository.findAll();
+		} else {
+			foods = food_repository.findByCategory(category);
+		}
+		//Create response object
+		Dictionary response = new Hashtable();
+
+		Iterator iterator = foods.iterator();
+
+		int idx = 0;
+
+		//Add data to response
+		while(iterator.hasNext()) {
+			//create item -> adding callbacks url
+			Dictionary item = new Hashtable();
+			Food food = (Food) iterator.next();
+			item.put("food", food);
+			item.put("to_shoplist_callback", "http://localhost:8081/api/food/foot_to_shopitem/"+food.getId());
+			item.put("delete_callback", "http://localhost:8081/api/food/remove/"+food.getId());
+			response.put(idx, item);
+			idx++;
+		}
+
+
+		//encode response to json
+		Gson gson = new Gson();
+		String json_response = gson.toJson(response);
+
+		return json_response;
 	}
 
 	@GetMapping(value = "/food/getAllFood")
@@ -158,10 +179,7 @@ public class DbManagerController {
 	@PostMapping(value = "/event/createEvent")
 	public Event addFood(@RequestBody Event event) {
 		System.out.println("\nAdding new Event: "+ event);
-
-		//LocalDate date = LocalDate.of(2020,04,20);
-		//Event _event = event_repository.save(new Event( event.getName(), this.current_user_id, event.getUrl_img(), event.getExpiry_date()));
-		Event _event = null;
+		Event _event = event_repository.save(new Event( event.getName(), this.current_user_id, event.getUrl_img(),event.getYear(),event.getMonth(),event.getDay(),event.getUrl_callback()));
 		return _event;
 	}
 
@@ -226,6 +244,13 @@ public class DbManagerController {
 		} else {
 			return new ResponseEntity<>( new ShopItem(), HttpStatus.OK);
 		}
+	}
+
+	@GetMapping("/food/foot_to_shopitem/{id}")
+	public ShopItem food_to_shopite(@PathVariable("id") long id){
+		Food food = food_repository.findById(id);
+		ShopItem _item = shopitem_repository.save(new ShopItem( food.getName(),  this.current_user_id, food.getUrl_img(), "No notes!", true, food.getCategory()));
+		return _item;
 	}
 
 	/*

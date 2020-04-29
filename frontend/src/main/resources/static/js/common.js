@@ -1,5 +1,9 @@
 var first_call;
 var total_foods = new Set();
+var category;
+var date;
+var food;
+var imgSrc;
 
 $(document).ready(function() {
 
@@ -20,7 +24,6 @@ $(document).ready(function() {
                 selectOnClose: true,
                 disabled: false,
                 placeholder: 'Insert food name',
-                //allowClear: true,
             });
 
             $("#fridge_category").select2({
@@ -41,6 +44,16 @@ $(document).ready(function() {
                 jsfridge(category);
             });
 
+            // Delete an item of a list
+            $(document.body).on("click", ".to_shoplist_btn", function (event) {
+                event.preventDefault();
+                var add_url = $(this).parent().parent().attr('href');
+                $(this).parent().parent().remove();
+                $.get( add_url, function( ) {
+                    alert("Added to shoplist!");
+                });
+            });
+
 
             //create food selector items
             var it = total_foods.values()
@@ -52,6 +65,68 @@ $(document).ready(function() {
                 data = it.next();
                 idx++;
             }
+
+            $(document.body).on("click", ".fa-trash-o", function (event) {
+                event.preventDefault();
+                var delete_url = $(this).parent().parent().attr('href');
+                //Remove item on screen
+                $(this).parent().parent().parent().parent().remove();
+
+                //fill foodselector forms
+                $.ajax({
+                    url: delete_url,
+                    type: 'DELETE',
+                });
+            })
+
+            $(document.body).on("click", ".fa-check", function (event) {
+                event.preventDefault();
+                var delete_url = $(this).parent().parent().attr('href');
+                //Remove item on screen
+                $(this).parent().parent().parent().parent().remove();
+
+                //fill foodselector forms
+                $.ajax({
+                    url: delete_url,
+                    type: 'DELETE',
+                    success: function (response) {
+                        openFoodSelector();
+
+                        $("#button_fridge").prop("disabled", true);
+                        $("#button_calendar").prop("disabled", true);
+                        $("#button_shoplist").prop("disabled", true);
+                        $("#button_foodselector").prop("disabled", true);
+
+                        $('#div_foodselector').show();
+
+
+                        category = response.category;
+                        food = response.name;
+                        imgSrc = response.url_img;
+
+                        $("#selection_food").select2({
+                            tags: true,
+                            selectOnClose: true,
+                            disabled: false,
+                            placeholder: food,
+                        });
+                        $('#selection_food').val(food).trigger('change');
+
+                        $("#category").select2({ placeholder: category });
+
+
+                        $("#category").prop("disabled", true);
+                        $("#selection_food").prop("disabled", true);
+
+                        $('#button_image').prop("disabled", true);
+                        document.getElementById('text_area').value = imgSrc;
+                        $('#text_area').prop("disabled", true);
+
+                        $('#food_img').attr('src', imgSrc);
+
+                    }
+                });
+            });
 
             openFridge();
         });
@@ -72,6 +147,7 @@ $(document).ready(function() {
         closeShopList();
         closeCalendar();
         closeFoodSelector();
+        jsfridge("all");
     }
 
     function closeFridge() {

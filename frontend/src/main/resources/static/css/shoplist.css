@@ -118,10 +118,6 @@ body{margin-top:20px;}
         }
 
 
-        #div_fridge .table a.table-link {
-            color: #ffc107;
-        }
-
         .table a.table-link:hover {
             text-decoration: none;
             color: #24860d;

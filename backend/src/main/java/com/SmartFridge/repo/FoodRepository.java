@@ -12,5 +12,7 @@ public interface FoodRepository extends CrudRepository<Food, Long> {
 	List<Food> findByCategory(String category);
 	void deleteById(long id);
 	Boolean existsById(long id);
+	Food findById(long id);
+	List<Food> findAll();
 }
 
