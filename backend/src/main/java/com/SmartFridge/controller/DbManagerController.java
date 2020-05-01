@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.util.*;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:8082")
 @RestController
 @RequestMapping("/api")
 public class DbManagerController {
@@ -88,8 +88,8 @@ public class DbManagerController {
 	@PostMapping(value = "/food/addFood")
 	public Food addFood(@RequestBody Food food) {
 		System.out.println("\nAdding new Food: "+food);
-		Food _food = food_repository.save(new Food(food.getName(), this.current_user_id, food.getUrl_img(), food.getYear(),food.getMonth(),food.getDay(), food.getCategory()));
-		Event _event = event_repository.save(new Event( food.getName(), this.current_user_id, food.getUrl_img(), food.getYear(), food.getMonth(), food.getDay(), "http://localhost:8081/api/event/remove/"+(_food.getId()+1)));
+		Event _event = event_repository.save(new Event( food.getName(), this.current_user_id, food.getUrl_img(), food.getYear(), food.getMonth(), food.getDay()));
+		Food _food = food_repository.save(new Food(food.getName(), this.current_user_id, food.getUrl_img(), food.getYear(),food.getMonth(),food.getDay(), food.getCategory(), _event.getId()));
 		return _food;
 	}
 
@@ -141,6 +141,8 @@ public class DbManagerController {
 	public ResponseEntity<String> removeFood(@PathVariable("id") long id) {
 		System.out.println("\nDelete Food with ID = " + id );
 		if (food_repository.existsById(id)) {
+			Food food_to_remove = food_repository.findById(id);
+			event_repository.deleteById(food_to_remove.getAssociated_event());
 			food_repository.deleteById(id);
 			return new ResponseEntity<>("Food has been deleted!", HttpStatus.OK);
 		} else {
@@ -156,17 +158,6 @@ public class DbManagerController {
 		return server_url;
     }*/
 
-    @GetMapping(value = "/test/event/addEvent/{month}")
-	public Event testaddEvent(@PathVariable int month,HttpServletRequest request) {
-    	String server_url = request.getRequestURL().toString().replaceAll(request.getRequestURI(),"/api/event/remove/"+String.valueOf(current_id));
-		Event event = new Event("gennaio_event",0,"https.jpg",2020,month,20, server_url);
-		System.out.println("\nAdding new Event: "+ event);
-		Event _event = event_repository.save(new Event(event.getName(), this.current_user_id, event.getUrl_img(), event.getYear(), event.getMonth(), event.getDay(), event.getUrl_callback() ));
-
-		this.current_id = _event.getId()+1;
-
-		return _event;
-	}
 
 	@GetMapping(value = "/event/getEvents/{year}/{month}")
 	public List<Event> getEvents(@PathVariable int year,@PathVariable int month) {
@@ -179,7 +170,7 @@ public class DbManagerController {
 	@PostMapping(value = "/event/createEvent")
 	public Event addFood(@RequestBody Event event) {
 		System.out.println("\nAdding new Event: "+ event);
-		Event _event = event_repository.save(new Event( event.getName(), this.current_user_id, event.getUrl_img(),event.getYear(),event.getMonth(),event.getDay(),event.getUrl_callback()));
+		Event _event = event_repository.save(new Event( event.getName(), this.current_user_id, event.getUrl_img(),event.getYear(),event.getMonth(),event.getDay()));
 		return _event;
 	}
 

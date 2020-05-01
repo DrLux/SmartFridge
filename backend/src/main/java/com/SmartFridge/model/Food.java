@@ -39,6 +39,9 @@ public class Food {
 	@Column(name = "day")
 	private int day;
 
+	@Column(name = "associated_event")
+	private long associated_event;
+
 	public Food(){
 		this.name = "";
 		this.url_img = "";
@@ -47,9 +50,10 @@ public class Food {
 		this.month = 0;
 		this.day = 0;
 		this.category = "";
+		this.associated_event = 0;
 	}
 
-	public Food(String name, long user_id, String url_img, int year, int month, int day, String category) {
+	public Food(String name, long user_id, String url_img, int year, int month, int day, String category, long associated_event) {
 		this.name = name;
 		this.url_img = url_img;
 		this.user_id = user_id;
@@ -57,6 +61,15 @@ public class Food {
 		this.month = month;
 		this.day = day;
 		this.category = category;
+		this.associated_event = associated_event;
+	}
+
+	public long getAssociated_event() {
+		return associated_event;
+	}
+
+	public void setAssociated_event(long associated_event) {
+		this.associated_event = associated_event;
 	}
 
 	public long getId() {

@@ -9,7 +9,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:8082")
 @RestController
 @RequestMapping("/fridge")
 public class FridgeService {
