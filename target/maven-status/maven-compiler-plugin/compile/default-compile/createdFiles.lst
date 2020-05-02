@@ -1,0 +1,13 @@
+com\smartfridge\model\Food.class
+com\smartfridge\SmartfridgeApplication.class
+com\smartfridge\model\ShopItem.class
+com\smartfridge\repo\UsersRepository.class
+com\smartfridge\repo\ShopItemRepository.class
+com\smartfridge\model\Event.class
+com\smartfridge\model\Users.class
+com\smartfridge\controller\CalendarService.class
+com\smartfridge\repo\FoodRepository.class
+com\smartfridge\controller\DbManagerController.class
+com\smartfridge\controller\FridgeService.class
+com\smartfridge\model\Category.class
+com\smartfridge\repo\EventRepository.class
