@@ -1,5 +1,5 @@
 function jsfridge(category){
-    url_temporaneo = "http://localhost:8081/api/food/getFoodPerCategory/"+category;
+    url_temporaneo = "http://localhost:5000/api/food/getFoodPerCategory/"+category;
     var fridge_table = "";
     $.get( url_temporaneo, function( data ) {
         data = JSON.parse(data);

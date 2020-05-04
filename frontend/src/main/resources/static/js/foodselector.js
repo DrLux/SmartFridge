@@ -50,7 +50,7 @@ function send_to_server(){
             "category":category};
 
         //send to the server
-        post_url = "http://localhost:8081/fridge/addFood";
+        post_url = "http://localhost:5000/fridge/addFood";
         $.ajax({
             type: 'POST',
             url: post_url,

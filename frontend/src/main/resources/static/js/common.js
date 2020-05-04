@@ -23,9 +23,9 @@ $.ajaxSetup({
 
 $(document).ready(function() {
 
-    $.get( "http://localhost:8081/api/firstCall", function( data ) {
+    $.get( "http://localhost:5000/api/firstCall", function( data ) {
         first_call = JSON.parse(data);
-        $.get( "http://localhost:8081/api/food/getAllFood", function( foods,status ) {
+        $.get( "http://localhost:5000/api/food/getAllFood", function( foods,status ) {
             foods.forEach(item => total_foods.add(item));
 
             $("#category").select2({
@@ -204,7 +204,7 @@ $(document).ready(function() {
         $('#calendar_here').append( "<div class='monthly' id='mycalendar'></div>" );
         $('#mycalendar').monthly({
             mode: 'event',
-            jsonUrl: 'http://localhost:8081/api/event/getEvents/{year}/{month}',
+            jsonUrl: 'http://localhost:5000/api/event/getEvents/{year}/{month}',
             dataType: 'json',
         });
     }

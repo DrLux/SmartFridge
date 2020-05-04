@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="20dp"
+              android:weightSum="1"
+              android:gravity="center_vertical">
+
+    <ImageView
+            android:id="@+id/row_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingLeft="15dp">
+
+        <TextView
+            android:id="@+id/row_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textStyle="bold" />
+
+
+
+        <TextView
+            android:id="@+id/row_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age" />
+
+        <TextView
+            android:id="@+id/row_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="City" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/delete"
+        style="@drawable/abc_ic_menu_paste_mtrl_am_alpha"
+        android:layout_width="28dp"
+        android:layout_height="33dp"
+        android:background="#00EC3131"
+        android:drawableBottom="@android:drawable/ic_menu_delete" />
+
+    <Button
+        android:id="@+id/to_shoplist"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="32dp"
+        android:layout_height="53dp"
+        android:drawableBottom="@android:drawable/ic_input_add" />
+
+</LinearLayout>

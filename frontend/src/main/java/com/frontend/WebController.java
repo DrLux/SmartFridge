@@ -20,7 +20,7 @@ public class WebController extends WebSecurityConfigurerAdapter  {
 
     @RequestMapping("/user_info")
     public Map<String, Object> user(@AuthenticationPrincipal OAuth2User principal) {
-        System.out.print("\n user_info: "+ principal.toString());
+        System.out.print("\n user_info id: "+ principal.getAttribute("id"));
         return Collections.singletonMap("name", principal.getAttribute("name"));
     }
 
