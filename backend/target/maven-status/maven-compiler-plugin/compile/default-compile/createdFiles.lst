@@ -1,0 +1,15 @@
+com\smartfridge\model\Food.class
+com\smartfridge\SmartfridgeApplication.class
+com\smartfridge\repo\UserRepository.class
+com\smartfridge\controller\CorsConfig.class
+com\smartfridge\model\ShopItem.class
+com\smartfridge\controller\CorsConfig$1.class
+com\smartfridge\controller\DbManager.class
+com\smartfridge\repo\ShopItemRepository.class
+com\smartfridge\model\Event.class
+com\smartfridge\controller\CalendarService.class
+com\smartfridge\repo\FoodRepository.class
+com\smartfridge\controller\FridgeService.class
+com\smartfridge\controller\ShopItemService.class
+com\smartfridge\repo\EventRepository.class
+com\smartfridge\model\User.class
