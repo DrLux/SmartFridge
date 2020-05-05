@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05f33a-1296-4d73-b73b-971ddbe81967" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../App/PopulateListview/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../App/PopulateListview/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/frontend/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/frontend/WebController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/foodselector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/foodselector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/fridge.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/fridge.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/monthly.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/monthly.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/shoplist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/shoplist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/frontend/WebController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/frontend/WebController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/foodselector.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/foodselector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/fridge.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/fridge.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +95,7 @@
       <workItem from="1588416989232" duration="611000" />
       <workItem from="1588586081277" duration="3320000" />
       <workItem from="1588666852442" duration="11146000" />
+      <workItem from="1588696449483" duration="1231000" />
     </task>
     <servers />
   </component>

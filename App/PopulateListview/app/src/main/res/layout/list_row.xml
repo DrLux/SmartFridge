@@ -51,11 +51,4 @@
         android:background="#00EC3131"
         android:drawableBottom="@android:drawable/ic_menu_delete" />
 
-    <Button
-        android:id="@+id/to_shoplist"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="32dp"
-        android:layout_height="53dp"
-        android:drawableBottom="@android:drawable/ic_input_add" />
-
 </LinearLayout>
