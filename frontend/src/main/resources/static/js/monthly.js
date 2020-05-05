@@ -13,7 +13,7 @@ Monthly 2.2.2 by Kevin Thornbloom is licensed under a Creative Commons Attributi
 				disablePast: false,
 				eventList: true,
 				events: "",
-				jsonUrl: "http://localhost:8081/api/event/getEvents/{year}/{month}",
+				jsonUrl: backend_url+calendar_service+"/getEvents/{year}/{month}",
 				linkCalendarToEventUrl: false,
 				maxWidth: false,
 				mode: "event",

@@ -1,7 +1,6 @@
 function jsshoplist(){
 
-	url_temporaneo = "http://localhost:8081/api/shopitems/getItems";
-	$.get( url_temporaneo, function( data ) {
+	$.get( backend_url + shoplist_service +"/getItems", function( data ) {
 
 		data = JSON.parse(data);
 		var table = "";

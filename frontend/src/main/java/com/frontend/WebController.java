@@ -18,10 +18,9 @@ import java.util.Map;
 @RestController
 public class WebController extends WebSecurityConfigurerAdapter  {
 
-    @RequestMapping("/user_info")
-    public Map<String, Object> user(@AuthenticationPrincipal OAuth2User principal) {
-        System.out.print("\n user_info id: "+ principal.getAttribute("id"));
-        return Collections.singletonMap("name", principal.getAttribute("name"));
+    @GetMapping("/user_info")
+    public String user(@AuthenticationPrincipal OAuth2User principal) {
+        return principal.getAttribute("id").toString();
     }
 
     @RequestMapping("/is_logged")

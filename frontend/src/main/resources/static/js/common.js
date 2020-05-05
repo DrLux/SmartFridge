@@ -5,6 +5,12 @@ var date;
 var food;
 var imgSrc;
 var calendario;
+//var backend_url = "http://localhost:5000";
+var backend_url = "https://smartfridge-app.herokuapp.com";
+var fridge_service = "";
+var calendar_service = "";
+var shoplist_service = "";
+
 
 $.ajaxSetup({
     beforeSend : function(xhr, settings) {
@@ -23,10 +29,23 @@ $.ajaxSetup({
 
 $(document).ready(function() {
 
-    $.get( "http://localhost:5000/api/firstCall", function( data ) {
+    $.get( "http://localhost:8082/user_info", function( user_id ) {
+        $.get(backend_url + "/dbManager/setUserId/" + user_id);
+        console.log("setted user id: "+user_id);
+    });
+
+    $.get( backend_url + "/dbManager/firstCall", function( data ) {
         first_call = JSON.parse(data);
-        $.get( "http://localhost:5000/api/food/getAllFood", function( foods,status ) {
-            foods.forEach(item => total_foods.add(item));
+        fridge_service = first_call.fridge_service;
+        calendar_service = first_call.calendar_service;
+        shoplist_service = first_call.shoplist_service;
+
+        $.get( backend_url + fridge_service+"/getFoodPerCategory/all", function( json_data,status ) {
+            foods = JSON.parse(json_data);
+
+            for (property in foods) {
+                total_foods.add(foods[property].food);
+            }
 
             $("#category").select2({
                 selectOnClose: true,
@@ -204,7 +223,7 @@ $(document).ready(function() {
         $('#calendar_here').append( "<div class='monthly' id='mycalendar'></div>" );
         $('#mycalendar').monthly({
             mode: 'event',
-            jsonUrl: 'http://localhost:5000/api/event/getEvents/{year}/{month}',
+            jsonUrl: backend_url+calendar_service+"/getEvents/{year}/{month}",
             dataType: 'json',
         });
     }
