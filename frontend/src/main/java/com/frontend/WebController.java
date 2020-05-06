@@ -37,7 +37,7 @@ public class WebController extends WebSecurityConfigurerAdapter  {
                 .cors()
                 .and()
                 .authorizeRequests(a -> a
-                        .antMatchers("/","/is_logged","/js/**","/css/**","/fonts/**", "/error", "/webjars/**").permitAll()
+                        .antMatchers("/","/is_logged","img/**","/img/**","/js/**","/css/**","/fonts/**", "/error", "/webjars/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(e -> e
