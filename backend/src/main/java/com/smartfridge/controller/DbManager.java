@@ -15,14 +15,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
-import java.util.Dictionary;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @CrossOrigin(origins = "*")
 @RequestMapping("/dbManager")
@@ -90,6 +90,12 @@ public class DbManager {
     public Food getFoodById(@PathVariable("id") long id) {
         System.out.println("\nGet Food with ID = " + id );
         return food_repository.findById(id);
+    }
+
+    @GetMapping("/food/getFoodByDate/{year}/{month}/{day}")
+    public List<Food> getFoodByDate(@PathVariable("year") int year,@PathVariable("month") int month,@PathVariable("day") int day) {
+        List<Food> expiry_foods = this.food_repository.findAllByYearEqualsAndMonthEqualsAndDayIsLessThanEqual(year,month,day);
+        return expiry_foods;
     }
 
     @DeleteMapping("/food/remove/{id}")
@@ -225,6 +231,8 @@ public class DbManager {
         ShopItem _item = shopitem_repository.save(new ShopItem( food.getName(),  this.current_user_id, food.getUrl_img(), "No notes!", true, food.getCategory()));
         return _item;
     }
+
+
 
     // TEST
     @GetMapping(value = "/hello")

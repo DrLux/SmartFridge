@@ -1,5 +1,6 @@
 package com.smartfridge.repo;
 
+import com.smartfridge.model.Event;
 import com.smartfridge.model.Food;
 import org.springframework.data.repository.CrudRepository;
 
@@ -11,4 +12,5 @@ public interface FoodRepository extends CrudRepository<Food, Long> {
     Boolean existsById(long id);
     Food findById(long id);
     List<Food> findAll();
+    List<Food> findAllByYearEqualsAndMonthEqualsAndDayIsLessThanEqual(int year, int month, int day);
 }

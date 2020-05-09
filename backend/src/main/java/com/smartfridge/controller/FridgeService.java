@@ -5,19 +5,20 @@ import com.smartfridge.model.Event;
 import com.smartfridge.model.ShopItem;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 import com.smartfridge.model.Food;
 
-import java.util.Dictionary;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/fridge")
+@Component
 public class FridgeService {
     //https://www.baeldung.com/spring-5-webclient
     WebClient client = WebClient.create();
@@ -137,7 +138,7 @@ public class FridgeService {
     }
 
     @DeleteMapping("/remove/{id}")
-    public String removeEvent(@PathVariable("id") long id) {
+    public String removeFridgeFood(@PathVariable("id") long id) {
         System.out.print("\n Asking DB_manger to remove Food");
         String uri = "dbManager/food/remove/"+id;
 
@@ -165,6 +166,44 @@ public class FridgeService {
                 .block();
 
         return  response;
+    }
+
+    //Remove all expired foods
+    @Scheduled(cron = "0 0 1 * * ?") //Cron expression: second, minute, hour, day of month, month, day(s) of week
+    @GetMapping(value = "/expired_food")
+    public List<Food> removeExpired(){
+
+        //get data
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date now = new Date();
+        String strDate = sdf.format(now);
+        String[] parts = strDate.split("-");
+        int currentYear = Integer.parseInt(parts[0]);
+        int currentMonth = Integer.parseInt(parts[1]);
+        int currentDay = Integer.parseInt(parts[2]);
+
+        //get expiry_foods
+        // Ask to db_manager
+        String uri = "dbManager/food/getFoodByDate/"+currentYear+"/"+currentMonth+"/"+currentDay;
+
+        System.out.print("\n Asking DB_manger to get all food expired today at: \n" + db_manager_url+uri);
+        List<Food> expiry_foods =  this.client
+                .method(HttpMethod.GET)
+                .uri(db_manager_url+uri)
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve()
+                .bodyToFlux(Food.class)
+                .collectList()
+                .log()
+                .block();
+
+        //remove expiry food one by one
+        ListIterator <Food> iterator = expiry_foods.listIterator();
+        while(iterator.hasNext()){
+            removeFridgeFood(iterator.next().getId());
+        }
+
+        return expiry_foods;
     }
 
 }

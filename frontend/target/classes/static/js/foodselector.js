@@ -13,7 +13,7 @@ function jsfoodselector() {
     reset_foodselector();
 
     $( "#datepicker" ).datepicker({
-        minDate: +1,
+        minDate: +0,
         dateFormat: 'dd-mm-yy',
         onSelect: function(dateText) {
             date = document.getElementById('datepicker').value;
