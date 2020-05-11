@@ -142,6 +142,8 @@ public class FridgeService {
         System.out.print("\n Asking DB_manger to remove Food");
         String uri = "dbManager/food/remove/"+id;
 
+        toShoplist(id);
+
         //Get food to delete
         Food food_to_remove = this.client
                                     .method(HttpMethod.GET)
@@ -169,7 +171,7 @@ public class FridgeService {
     }
 
     //Remove all expired foods
-    @Scheduled(cron = "0 0 1 * * ?") //Cron expression: second, minute, hour, day of month, month, day(s) of week
+    @Scheduled(cron = "0 0 */23 * * ?", zone= "Europe/Rome") //Cron expression: second, minute, hour, day of month, month, day(s) of week
     @GetMapping(value = "/expired_food")
     public List<Food> removeExpired(){
 

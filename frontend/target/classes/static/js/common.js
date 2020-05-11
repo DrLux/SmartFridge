@@ -5,12 +5,16 @@ var date;
 var food;
 var imgSrc;
 var calendario;
-//var backend_url = "http://localhost:5000";
-var backend_url = "https://smartfridge-app.herokuapp.com";
+var backend_url = "http://localhost:5000";
+//var backend_url = "https://smartfridge-app.herokuapp.com";
 var fridge_service = "";
 var calendar_service = "";
 var shoplist_service = "";
 
+var item_category;
+var item_food;
+var item_imgSrc;
+var item_note;
 
 $.ajaxSetup({
     beforeSend : function(xhr, settings) {
@@ -47,6 +51,7 @@ $(document).ready(function() {
                 total_foods.add(foods[property].food);
             }
 
+            // Foodselecto
             $("#category").select2({
                 selectOnClose: true,
                 disabled: false,
@@ -61,10 +66,26 @@ $(document).ready(function() {
                 placeholder: 'Insert food name',
             });
 
+            //Fridge
             $("#fridge_category").select2({
                 selectOnClose: true,
                 placeholder: "Select food category",
                 disabled: false,
+            });
+
+            //CreateItem
+            $("#newitem_category").select2({
+                selectOnClose: true,
+                disabled: false,
+                placeholder: "Select food category",
+                //allowClear: true,
+            });
+
+            $("#newitem_selection_food").select2({
+                tags: true,
+                selectOnClose: true,
+                disabled: false,
+                placeholder: 'Insert food name',
             });
 
             $.each(first_call.Categories, function( index, value ) {
@@ -72,6 +93,8 @@ $(document).ready(function() {
                 $('#category').append(select_food_option).trigger('change');
                 var fridge_category_option = new Option(value, index, false, false);
                 $('#fridge_category').append(fridge_category_option).trigger('change');
+                var newitem_category_option = new Option(value, index, false, false);
+                $('#newitem_category').append(fridge_category_option).trigger('change');
             });
 
             $('#fridge_category').on('select2:select', function (e) {
@@ -171,6 +194,18 @@ $(document).ready(function() {
 
 });
 
+    function openCreateItem() {
+        $('#div_newitem').show();
+        closeShopList();
+        closeCalendar();
+        closeFoodSelector();
+        closeFridge();
+        jscreateItem();
+    }
+
+    function closeCreateItem() {
+        $('#div_newitem').hide();
+    }
 
 
     function openFridge() {
@@ -178,6 +213,7 @@ $(document).ready(function() {
         closeShopList();
         closeCalendar();
         closeFoodSelector();
+        closeCreateItem();
         jsfridge("all");
     }
 
@@ -193,6 +229,7 @@ $(document).ready(function() {
         closeCalendar();
         closeFridge();
         jsfoodselector();
+        closeCreateItem();
         //$('#button_fridge').addClass("enable");
     }
 
@@ -206,6 +243,7 @@ $(document).ready(function() {
         closeCalendar();
         closeFoodSelector();
         closeFridge();
+        closeCreateItem();
         jsshoplist();
     }
 
@@ -218,6 +256,7 @@ $(document).ready(function() {
         closeShopList();
         closeFoodSelector();
         closeFridge();
+        closeCreateItem();
         closeCalendar();
         $('#div_calendar').show();
         $('#calendar_here').append( "<div class='monthly' id='mycalendar'></div>" );

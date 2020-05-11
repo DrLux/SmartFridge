@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05f33a-1296-4d73-b73b-971ddbe81967" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/createItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/target/classes/META-INF/build-info.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/META-INF/build-info.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/target/projecttass-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/projecttass-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/target/projecttass-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/projecttass-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/frontend/FrontendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/frontend/FrontendApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/foodselector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/foodselector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/frontend/FrontendApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/frontend/FrontendApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/loginpage.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/loginpage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/foodselector.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/foodselector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/foodselector.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/foodselector.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/smartfridge.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/smartfridge.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/smartfridge.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/smartfridge.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +27,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -54,7 +60,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../heroku/smartfridge-app" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
@@ -113,6 +119,8 @@
       <workItem from="1589060909949" duration="19000" />
       <workItem from="1589061962547" duration="1818000" />
       <workItem from="1589065988919" duration="46000" />
+      <workItem from="1589136472883" duration="2787000" />
+      <workItem from="1589185532700" duration="7873000" />
     </task>
     <servers />
   </component>
@@ -141,50 +149,50 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="389" y="188" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589056900941" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1589066032937">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1589192829223">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589066032937" />
-    <state x="2308" y="88" key="FileChooserDialogImpl/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1588328858412" />
-    <state width="1237" height="162" key="GridCell.Tab.0.bottom" timestamp="1589065967979">
+    <state x="421" y="96" key="FileChooserDialogImpl/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589192829223" />
+    <state x="2308" y="88" key="FileChooserDialogImpl/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1589137571237" />
+    <state width="1237" height="142" key="GridCell.Tab.0.bottom" timestamp="1589194022106">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="162" key="GridCell.Tab.0.bottom/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589065967979" />
+    <state width="1237" height="142" key="GridCell.Tab.0.bottom/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589194022106" />
     <state width="1135" height="162" key="GridCell.Tab.0.bottom/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1588688015797" />
-    <state width="1237" height="162" key="GridCell.Tab.0.center" timestamp="1589065967979">
+    <state width="1237" height="142" key="GridCell.Tab.0.center" timestamp="1589194022106">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="162" key="GridCell.Tab.0.center/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589065967979" />
+    <state width="1237" height="142" key="GridCell.Tab.0.center/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589194022106" />
     <state width="1135" height="162" key="GridCell.Tab.0.center/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1588688015796" />
-    <state width="1237" height="162" key="GridCell.Tab.0.left" timestamp="1589065967979">
+    <state width="1237" height="142" key="GridCell.Tab.0.left" timestamp="1589194022106">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="162" key="GridCell.Tab.0.left/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589065967979" />
+    <state width="1237" height="142" key="GridCell.Tab.0.left/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589194022106" />
     <state width="1135" height="162" key="GridCell.Tab.0.left/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1588688015796" />
-    <state width="1237" height="162" key="GridCell.Tab.0.right" timestamp="1589065967979">
+    <state width="1237" height="142" key="GridCell.Tab.0.right" timestamp="1589194022106">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="162" key="GridCell.Tab.0.right/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589065967979" />
+    <state width="1237" height="142" key="GridCell.Tab.0.right/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589194022106" />
     <state width="1135" height="162" key="GridCell.Tab.0.right/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1588688015796" />
-    <state width="1237" height="162" key="GridCell.Tab.1.bottom" timestamp="1589065967980">
+    <state width="1237" height="142" key="GridCell.Tab.1.bottom" timestamp="1589194022107">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="162" key="GridCell.Tab.1.bottom/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589065967980" />
+    <state width="1237" height="142" key="GridCell.Tab.1.bottom/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589194022107" />
     <state width="1135" height="162" key="GridCell.Tab.1.bottom/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1588688015797" />
-    <state width="1237" height="162" key="GridCell.Tab.1.center" timestamp="1589065967979">
+    <state width="1237" height="142" key="GridCell.Tab.1.center" timestamp="1589194022107">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="162" key="GridCell.Tab.1.center/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589065967979" />
+    <state width="1237" height="142" key="GridCell.Tab.1.center/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589194022107" />
     <state width="1135" height="162" key="GridCell.Tab.1.center/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1588688015797" />
-    <state width="1237" height="162" key="GridCell.Tab.1.left" timestamp="1589065967979">
+    <state width="1237" height="142" key="GridCell.Tab.1.left" timestamp="1589194022107">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="162" key="GridCell.Tab.1.left/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589065967979" />
+    <state width="1237" height="142" key="GridCell.Tab.1.left/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589194022107" />
     <state width="1135" height="162" key="GridCell.Tab.1.left/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1588688015797" />
-    <state width="1237" height="162" key="GridCell.Tab.1.right" timestamp="1589065967979">
+    <state width="1237" height="142" key="GridCell.Tab.1.right" timestamp="1589194022107">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="162" key="GridCell.Tab.1.right/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589065967979" />
+    <state width="1237" height="142" key="GridCell.Tab.1.right/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589194022107" />
     <state width="1135" height="162" key="GridCell.Tab.1.right/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1588688015797" />
     <state x="2281" y="30" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1588345119943">
       <screen x="1920" y="0" width="1179" height="621" />

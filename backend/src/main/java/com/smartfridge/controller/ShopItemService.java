@@ -1,6 +1,7 @@
 package com.smartfridge.controller;
 
 import com.google.gson.Gson;
+import com.smartfridge.model.Event;
 import com.smartfridge.model.Food;
 import com.smartfridge.model.ShopItem;
 import org.springframework.http.HttpMethod;
@@ -86,6 +87,27 @@ public class ShopItemService {
                                 .retrieve()
                                 .bodyToMono(ShopItem.class)
                                 .block();
+        return  response;
+    }
+
+
+    @PostMapping("/addItem")
+    public ShopItem addShopItem(@RequestBody ShopItem item) {
+        System.out.print("\n Asking DB_manger to add new item\n");
+        String uri = "dbManager/shopitems/additem";
+
+        System.out.print("link" + db_manager_url + uri);
+        System.out.print("item: " + item.toString());
+
+        //Create Item
+        ShopItem response =  this.client
+                .method(HttpMethod.POST)
+                .uri(db_manager_url+uri)
+                .body(BodyInserters.fromObject(item))
+                .retrieve()
+                .bodyToMono(ShopItem.class)
+                .block();
+
         return  response;
     }
 }

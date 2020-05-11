@@ -46,6 +46,9 @@
     <script type="text/javascript" src="js/foodselector.js"></script>
     <link rel="stylesheet" type="text/css" href="css/foodselector.css"></link>
 
+    <!-- links to CreateItem -->
+    <script type="text/javascript" src="js/createItem.js"></script>
+
     <!-- links to Shoplist -->
     <link rel="stylesheet" href="css/shoplist.css">
     <script type="text/javascript" src="js/shoplist.js"></script>
@@ -175,7 +178,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <img src="" class="img-fluid" id="food_img" alt="">
+                        <img src="" class="img-fluid food_img" id="food_img" alt="">
                     </div>
                 </div>
 
@@ -186,7 +189,7 @@
             <div class="col-lg-12">
 
                 <div class="form-group">
-                    <label>#4 Insert expiry date" </label>
+                    <label  class="label">#4 Insert expiry date" </label>
                     <div class='input-group date' id='datetimepicker1'>
                         <input type="text" id="datepicker">
                     </div>
@@ -243,8 +246,91 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <button id="add_item" onclick="openCreateItem()" type="button" class="btn btn-success btn-lg align-bottom">Add ShopItem</button>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!-- NewItem -->
+    <div id="div_newitem">
+        <div class="row align-self-center">
+            <div class="col-lg-12">
+
+                <div class="form-group">
+                    <label class="label">#1 Select the food category" </label>
+                    <div class="input-group mb-3">
+                        <select id="newitem_category" name="selected-category" class="js-example-basic-single" style="width: 100%;">
+                            <option></option>
+
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12 container-fluid">
+
+                <div class="form-group">
+                    <label class="label">#2 Insert food name </label>
+                    <div class="input-group mb-3">
+                        <select id="newitem_selection_food" name="selected-food" class="js-example-basic-single" type="text" style="width: 100%;">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="form-group">
+                    <label class="label">#3 Add url image of food </label>
+                    <div class="input-group mb-6">
+                        <div class="input-group-append" style="width: 100%;">
+                            <input type="text" id="item_img_text_area" placeholder="inserisci immagine url" name="url_shop_image" value="" style="width: 100%;">
+                            <button id="item_button_image" class="btn btn-primary" type="button">Ok</button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <img src="" class="img-fluid food_img" id="item_food_img" alt="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="form-group">
+                    <label  class="label">#4 Insert Note" </label>
+                    <div class="input-group-append" style="width: 100%;">
+                        <input type="text" id="note_text_area" placeholder="Inserisci la nota" name="note" value="" style="width: 100%;">
+                        <button id="button_note" class="btn btn-primary" type="button">Ok</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <button id="send_newitem_button" onclick="send_newitem_to_server()" type="button" class="btn btn-success btn-lg align-bottom">Create New Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>
