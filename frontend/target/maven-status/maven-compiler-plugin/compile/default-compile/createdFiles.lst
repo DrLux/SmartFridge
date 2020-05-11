@@ -1,0 +1,4 @@
+com\frontend\FrontendApplication.class
+com\frontend\WebController.class
+com\frontend\CorsConfig$1.class
+com\frontend\CorsConfig.class

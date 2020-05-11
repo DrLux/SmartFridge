@@ -4,7 +4,12 @@ spring:
       client:
         registration:
           github:
-            client-id: 626c3bf468e6672a644f
-            client-secret: e5b7e172c91c61c456f199561c37a25dc6ef803b
-server:
-  port: 8082
+            # online
+            client-id: 1a573d9a1be8e901d307
+            client-secret: 4fcac15be99e5606d47d0590d6703f3665dbbbf8
+            # offline
+            #client-id: 626c3bf468e6672a644f
+            #client-secret: e5b7e172c91c61c456f199561c37a25dc6ef803b
+#server:
+#  port: 8082
+

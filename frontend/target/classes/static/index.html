@@ -31,7 +31,8 @@
 
         $.get("/is_logged", function (logged) {
             if (logged){
-                $(location).attr('href',"http://localhost:8082/smartfridge.html");
+                $(location).attr('href',"https://smartfridge-frontend.herokuapp.com/smartfridge.html");
+                //$(location).attr('href',"http://localhost:8082/smartfridge.html");
             }
         });
     </script>
@@ -42,7 +43,8 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="text-center">
-            <button id="login_button" type="button" onclick="$(location).attr('href','http://localhost:8082/oauth2/authorization/github');" class="btn btn-info"><i class="fa fa-home"></i> Login with GitHub </button>
+            <button id="login_button" type="button" onclick="$(location).attr('href','https://smartfridge-frontend.herokuapp.com/oauth2/authorization/github');" class="btn btn-info"><i class="fa fa-home"></i> Login with GitHub </button>
+            <!--<button id="login_button" type="button" onclick="$(location).attr('href','http://localhost:8082/oauth2/authorization/github');" class="btn btn-info"><i class="fa fa-home"></i> Login with GitHub </button>-->
         </div>
     </div>
 </div>

@@ -99,6 +99,7 @@ function reset_foodselector(){
     document.getElementById('datepicker').value = null;
     document.getElementById('text_area').value = null;
     $('#food_img').attr('src', "");
+    $("#food_img").prop("disabled", false);
 
     $("#send_button").prop("disabled", true);
 

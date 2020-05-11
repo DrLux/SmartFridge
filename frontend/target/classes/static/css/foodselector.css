@@ -35,6 +35,11 @@
     max-height:150px;
 }
 
+.item_food_img{
+    max-width:150px;
+    max-height:150px;
+}
+
 #text_area{
     min-height: 100%;
     min-width: 60%;

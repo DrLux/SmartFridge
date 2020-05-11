@@ -7,6 +7,10 @@ var imgSrc;
 var calendario;
 //var backend_url = "http://localhost:5000";
 var backend_url = "https://smartfridge-app.herokuapp.com";
+
+//var  frontend_url = "http://localhost:8082/";
+var  frontend_url = "https://smartfridge-frontend.herokuapp.com/";
+
 var fridge_service = "";
 var calendar_service = "";
 var shoplist_service = "";
@@ -33,7 +37,7 @@ $.ajaxSetup({
 
 $(document).ready(function() {
 
-    $.get( "http://localhost:8082/user_info", function( user_id ) {
+    $.get( frontend_url, function( user_id ) {
         $.get(backend_url + "/dbManager/setUserId/" + user_id);
         console.log("setted user id: "+user_id);
     });
@@ -94,7 +98,7 @@ $(document).ready(function() {
                 var fridge_category_option = new Option(value, index, false, false);
                 $('#fridge_category').append(fridge_category_option).trigger('change');
                 var newitem_category_option = new Option(value, index, false, false);
-                $('#newitem_category').append(fridge_category_option).trigger('change');
+                $('#newitem_category').append(newitem_category_option).trigger('change');
             });
 
             $('#fridge_category').on('select2:select', function (e) {
@@ -219,7 +223,7 @@ $(document).ready(function() {
 
     function closeFridge() {
         //$("#fridge_category").val('Select food category').trigger('change');
-        $('#fridge_category').val(null).trigger('change');
+        //$('#fridge_category').val(null).trigger('change');
         $('#div_fridge').hide();
     }
 
