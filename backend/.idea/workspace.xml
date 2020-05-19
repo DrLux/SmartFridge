@@ -3,20 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b03d208b-446e-4380-ad6f-b2d64a1fb1ea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartfridge/SmartfridgeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartfridge/SmartfridgeApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/smartfridge/controller/DbManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartfridge/controller/DbManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartfridge/controller/FridgeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartfridge/controller/FridgeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartfridge/repo/EventRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartfridge/repo/EventRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartfridge/repo/FoodRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartfridge/repo/FoodRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/build-info.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/build-info.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartfridge/SmartfridgeApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartfridge/SmartfridgeApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartfridge/controller/DbManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartfridge/controller/DbManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartfridge/controller/FridgeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartfridge/controller/FridgeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartfridge/repo/EventRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartfridge/repo/EventRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smartfridge/repo/FoodRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smartfridge/repo/FoodRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/projecttass-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/projecttass-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/projecttass-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/projecttass-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +39,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -64,7 +50,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../heroku/smartfridge-app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SmartFridge/frontend" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -102,13 +88,21 @@
       <workItem from="1589060616174" duration="38000" />
       <workItem from="1589060931540" duration="3795000" />
       <workItem from="1589066120601" duration="156000" />
-      <workItem from="1589137574877" duration="344000" />
-      <workItem from="1589146930199" duration="464000" />
+      <workItem from="1589136426271" duration="40000" />
+      <workItem from="1589147396645" duration="1748000" />
+      <workItem from="1589191944561" duration="510000" />
+      <workItem from="1589192832235" duration="1185000" />
+      <workItem from="1589277169622" duration="1972000" />
+      <workItem from="1589298405800" duration="13000" />
+      <workItem from="1589301103599" duration="27000" />
+      <workItem from="1589369453795" duration="599000" />
+      <workItem from="1589387585500" duration="894000" />
+      <workItem from="1589921763230" duration="272000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588585762347">
@@ -127,30 +121,31 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1588531809571" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1589147393143">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="2308" y="75" key="FileChooserDialogImpl" timestamp="1589922033211">
+      <screen x="1920" y="0" width="1179" height="621" />
     </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589147393143" />
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1589147394177">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="421" y="96" key="FileChooserDialogImpl/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589061958879" />
+    <state x="2308" y="75" key="FileChooserDialogImpl/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1589922033211" />
+    <state width="1135" height="9" key="GridCell.Tab.0.bottom" timestamp="1589298369474">
+      <screen x="1920" y="0" width="1179" height="621" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589147394177" />
-    <state width="1135" height="163" key="GridCell.Tab.0.bottom/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1588686919502" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1589147394176">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589194019318" />
+    <state width="1135" height="9" key="GridCell.Tab.0.bottom/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1589298369474" />
+    <state width="1135" height="9" key="GridCell.Tab.0.center" timestamp="1589298369474">
+      <screen x="1920" y="0" width="1179" height="621" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589147394176" />
-    <state width="1135" height="163" key="GridCell.Tab.0.center/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1588686919501" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1589147394176">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589194019318" />
+    <state width="1135" height="9" key="GridCell.Tab.0.center/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1589298369474" />
+    <state width="1135" height="9" key="GridCell.Tab.0.left" timestamp="1589298369474">
+      <screen x="1920" y="0" width="1179" height="621" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589147394176" />
-    <state width="1135" height="163" key="GridCell.Tab.0.left/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1588686919501" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1589147394177">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589194019318" />
+    <state width="1135" height="9" key="GridCell.Tab.0.left/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1589298369474" />
+    <state width="1135" height="9" key="GridCell.Tab.0.right" timestamp="1589298369474">
+      <screen x="1920" y="0" width="1179" height="621" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589147394177" />
-    <state width="1135" height="163" key="GridCell.Tab.0.right/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1588686919501" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589194019318" />
+    <state width="1135" height="9" key="GridCell.Tab.0.right/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1589298369474" />
     <state width="1237" height="163" key="GridCell.Tab.1.bottom" timestamp="1589055319404">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05f33a-1296-4d73-b73b-971ddbe81967" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/monthly.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/monthly.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/frontend-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/frontend-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/frontend-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/frontend-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../App/PopulateListview/app/src/main/java/com/androdocs/populatelistview/CustomAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../App/PopulateListview/app/src/main/java/com/androdocs/populatelistview/CustomAdapter.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,18 +25,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="1ainYy4Nu9PcypszAlUXJeJXVnq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -48,6 +37,7 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -119,11 +109,14 @@
       <workItem from="1589212996265" duration="305000" />
       <workItem from="1589276020709" duration="966000" />
       <workItem from="1589301136281" duration="119000" />
+      <workItem from="1589369422087" duration="632000" />
+      <workItem from="1589387572597" duration="11000" />
+      <workItem from="1589922038044" duration="17000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2102" y="0" key="#Project_Structure" timestamp="1588338569745">
@@ -147,11 +140,11 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="389" y="188" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589056900941" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1589277165159">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1589387581760">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589277165159" />
-    <state x="2308" y="88" key="FileChooserDialogImpl/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1589137571237" />
+    <state x="421" y="96" key="FileChooserDialogImpl/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589387581760" />
+    <state x="2308" y="88" key="FileChooserDialogImpl/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1589369450358" />
     <state width="1237" height="142" key="GridCell.Tab.0.bottom" timestamp="1589277166919">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

@@ -39,15 +39,6 @@ class CustomAdapter(private val context: Context,
         val delete_button =  rowView.findViewById<Button>(R.id.delete)
 
         delete_button.setOnClickListener{
-
-
-
-            val request = Request.Builder()
-                                .url(HttpUrl.parse(dataitem.get("callback")))
-                                .delete()
-                                .build()
-
-            val response = client.newCall(request).execute()
             Toast.makeText(rowView.getContext(), "Rimosso " + dataitem.get("name").toString(), Toast.LENGTH_LONG).show()
             dataList.remove(dataList[position])
             notifyDataSetChanged()

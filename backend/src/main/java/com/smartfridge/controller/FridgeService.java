@@ -171,7 +171,7 @@ public class FridgeService {
     }
 
     //Remove all expired foods
-    @Scheduled(cron = "0 0 */23 * * ?", zone= "Europe/Rome") //Cron expression: second, minute, hour, day of month, month, day(s) of week
+    @Scheduled(cron = "* * 1 * * *", zone= "Europe/Rome") //Cron expression: second, minute, hour, day of month, month, day(s) of week
     @GetMapping(value = "/expired_food")
     public List<Food> removeExpired(){
 

@@ -19,10 +19,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
-import javax.sql.DataSource;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.*;
 
 @CrossOrigin(origins = "*")
 @RequestMapping("/dbManager")
