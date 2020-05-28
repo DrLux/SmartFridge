@@ -1,54 +1,337 @@
-<!doctype html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8" />
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- META ===================================================== -->
+    <title>Smartfridge - Il tuo frigo sempre a portata di mano</title>
+    <meta name="description" content="">
+
+    <!-- Favicon  ========================================== -->
+
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <!-- Nav bar -->
+    <!-- https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_navbar_btn&stacked=h -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>SmartFridge {Login Page}</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width" />
-    <base href="/" />
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
-    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/loginpage.css"></link>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!-- link per adding dinamico -->
+    <!-- https://stackoverflow.com/questions/25428361/dynamically-add-item-to-jquery-select2-control-that-uses-ajax -->
+    <!-- manuale: https://select2.org/placeholders -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet"/>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+    <!-- links per la grafica in generale -->
+    <!-- from: http://www.codesvila.com/dropdown-select-with-the-live-search-bootstrap/ -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css" >
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+
+    <!-- data picker -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- Include common js -->
+    <script type="text/javascript" src="js/common.js"></script>
+
+    <!-- links to Foodselector -->
+    <script type="text/javascript" src="js/foodselector.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/foodselector.css"></link>
+
+    <!-- links to CreateItem -->
+    <script type="text/javascript" src="js/createItem.js"></script>
+
+    <!-- links to Shoplist -->
+    <link rel="stylesheet" href="css/shoplist.css">
+    <script type="text/javascript" src="js/shoplist.js"></script>
+
+    <!-- Links to fridge -->
+    <script type="text/javascript" src="js/fridge.js"></script>
+
+    <!-- links to calendar -->
+    <!-- CSS ====================================================== -->
+    <link rel="stylesheet" href="css/responsivetables.css">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/monthly.css">
+
+    <!-- JS ======================================================= -->
+    <script type="text/javascript" src="js/monthly.js"></script>
     <script type="text/javascript" src="/webjars/js-cookie/js.cookie.js"></script>
-    <script type="text/javascript">
-        $.ajaxSetup({
-            beforeSend : function(xhr, settings) {
-                if (settings.type == 'POST' || settings.type == 'PUT'
-                    || settings.type == 'DELETE') {
-                    if (!(/^http:.*/.test(settings.url) || /^https:.*/
-                        .test(settings.url))) {
-                        // Only send the token to relative URLs i.e. locally.
-                        xhr.setRequestHeader("X-XSRF-TOKEN",
-                            Cookies.get('XSRF-TOKEN'));
-                    }
-                }
-            }
-        });
 
-        $.get("/is_logged", function (logged) {
-            if (logged){
-                $(location).attr('href',"https://smartfridge-frontend.herokuapp.com/smartfridge.html");
-                //$(location).attr('href',"http://localhost:8082/smartfridge.html");
-            }
-        });
-    </script>
+
 </head>
 
 <body>
-<div class="bg"></div>
-<div class="row">
-    <div class="col-lg-12">
-        <div class="text-center">
-            <button id="login_button" type="button" onclick="$(location).attr('href','https://smartfridge-frontend.herokuapp.com/oauth2/authorization/github');" class="btn btn-info"><i class="fa fa-home"></i> Login with GitHub </button>
-            <!--<button id="login_button" type="button" onclick="$(location).attr('href','http://localhost:8082/oauth2/authorization/github');" class="btn btn-info"><i class="fa fa-home"></i> Login with GitHub </button>-->
+
+
+<div class="container shadow" style="padding: 5rem; margin-top: 2rem; background: #f2f2f2">
+
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="btn-group-lg">
+                <button id="button_fridge"   type="button" onclick="openFridge()" class="btn btn-primary"><i class="fa fa-home"></i> Fridge </button>
+                <button id="button_calendar" type="button" onclick="openCalendar()" class="btn btn-secondary"><i class="fa fa-calendar"></i> Calendar</button>
+                <button id="button_shoplist" type="button" onclick="openShopList()" class="btn btn-warning"><i class="fa fa-list-ul"></i> ShopList </button>
+                <button id="button_foodselector" type="button" onclick="$(location).attr('href','https://smartfridge-frontend.herokuapp.com/logout');" class="btn btn-danger"><i class="fa fa-home"></i> Logout </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <!--  Fridge -->
+    <div id="div_fridge">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="form-group">
+                    <label class="label">#1 Select the food category" </label>
+                    <div class="input-group mb-3">
+                        <select id="fridge_category" name="selected-category" class="js-example-basic-single" style="width: 100%;">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="main-box clearfix">
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                            <tr>
+                                <th><span>Food</span></th>
+                                <th><span>Exipiry Date</span></th>
+                                <th class="text-center"><span>Category</span></th>
+                            </tr>
+                            </thead>
+                            <tbody id="fridge_body">
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <button id="create_food" onclick="openFoodSelector()" type="button" class="btn btn-success btn-lg align-bottom">Add Food</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FOODSELECTOR -->
+    <div id="div_foodselector">
+        <div class="row align-self-center">
+            <div class="col-lg-12">
+
+                <div class="form-group">
+                    <label class="label">#1 Select the food category" </label>
+                    <div class="input-group mb-3">
+                        <select id="category" name="selected-category" class="js-example-basic-single" style="width: 100%;">
+                            <option></option>
+
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12 container-fluid">
+
+                <div class="form-group">
+                    <label class="label">#2 Insert food name </label>
+                    <div class="input-group mb-3">
+                        <select id="selection_food" name="selected-food" class="js-example-basic-single" type="text" style="width: 100%;">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="form-group">
+                    <label class="label">#3 Add url image of food </label>
+                    <div class="input-group mb-6">
+                        <div class="input-group-append" style="width: 100%;">
+                            <input type="text" id="text_area" placeholder="inserisci immagine url" name="url_image" value="" style="width: 100%;">
+                            <button id="button_image" class="btn btn-primary" type="button">Ok</button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <img src="" class="img-fluid food_img" id="food_img" alt="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="form-group">
+                    <label  class="label">#4 Insert expiry date" </label>
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type="text" id="datepicker">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <button id="send_button" onclick="send_to_server()" type="button" class="btn btn-success btn-lg align-bottom">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--    Calendar -->
+    <div id="div_calendar">
+        <div class="page">
+            <div style="width:100%; max-width:600px; display:inline-block;">
+                <div id="calendar_here">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Shoplist -->
+    <div id="div_shoplist">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="main-box clearfix">
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                            <tr>
+                                <th><span>Cibo</span></th>
+                                <th><span>Note</span></th>
+                                <th class="text-center"><span>Aggiunta</span></th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <button id="add_item" onclick="openCreateItem()" type="button" class="btn btn-success btn-lg align-bottom">Add ShopItem</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NewItem -->
+    <div id="div_newitem">
+        <div class="row align-self-center">
+            <div class="col-lg-12">
+
+                <div class="form-group">
+                    <label class="label">#1 Select the food category" </label>
+                    <div class="input-group mb-3">
+                        <select id="newitem_category" name="selected-category" class="js-example-basic-single" style="width: 100%;">
+                            <option></option>
+
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12 container-fluid">
+
+                <div class="form-group">
+                    <label class="label">#2 Insert food name </label>
+                    <div class="input-group mb-3">
+                        <select id="newitem_selection_food" name="selected-food" class="js-example-basic-single" type="text" style="width: 100%;">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="form-group">
+                    <label class="label">#3 Add url image of food </label>
+                    <div class="input-group mb-6">
+                        <div class="input-group-append" style="width: 100%;">
+                            <input type="text" id="item_img_text_area" placeholder="inserisci immagine url" name="url_shop_image" value="" style="width: 100%;">
+                            <button id="item_button_image" class="btn btn-primary" type="button">Ok</button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <img src="" class="img-fluid item_food_img" id="item_food_img" alt="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="form-group">
+                    <label  class="label">#4 Insert Note" </label>
+                    <div class="input-group-append" style="width: 100%;">
+                        <input type="text" id="note_text_area" placeholder="Inserisci la nota" name="note" value="" style="width: 100%;">
+                        <button id="button_note" class="btn btn-primary" type="button">Ok</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <button id="send_newitem_button" onclick="send_newitem_to_server()" type="button" class="btn btn-success btn-lg align-bottom">Create New Item</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
 
 </body>
 </html>

@@ -37,10 +37,7 @@ $.ajaxSetup({
 
 $(document).ready(function() {
 
-    $.get( frontend_url, function( user_id ) {
-        $.get(backend_url + "/dbManager/setUserId/" + user_id);
-        console.log("setted user id: "+user_id);
-    });
+    $.get(backend_url + "/dbManager/setUserId/" + 1);
 
     $.get( backend_url + "/dbManager/firstCall", function( data ) {
         first_call = JSON.parse(data);

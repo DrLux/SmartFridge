@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d05f33a-1296-4d73-b73b-971ddbe81967" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../App/PopulateListview/app/src/main/java/com/androdocs/populatelistview/CustomAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../App/PopulateListview/app/src/main/java/com/androdocs/populatelistview/CustomAdapter.kt" afterDir="false" />
-    </list>
+    <list default="true" id="0d05f33a-1296-4d73-b73b-971ddbe81967" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="social-logout" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -112,6 +107,7 @@
       <workItem from="1589369422087" duration="632000" />
       <workItem from="1589387572597" duration="11000" />
       <workItem from="1589922038044" duration="17000" />
+      <workItem from="1589922077039" duration="582000" />
     </task>
     <servers />
   </component>
@@ -123,11 +119,15 @@
       <screen x="1920" y="0" width="1179" height="621" />
     </state>
     <state x="2102" y="0" key="#Project_Structure/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1588338569745" />
-    <state x="49" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588367799960">
+    <state x="49" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589922441978">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="49" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1588367799960" />
+    <state x="49" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589922441978" />
     <state x="1965" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1179.621/0.0.1280.680@1920.0.1179.621" timestamp="1588338633778" />
+    <state x="324" y="130" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1589922438448">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="324" y="130" key="#com.intellij.ide.util.TreeClassChooserDialog/1920.0.1179.621/0.0.1280.680@0.0.1280.680" timestamp="1589922438448" />
     <state x="2222" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1588367697799">
       <screen x="1920" y="0" width="1179" height="621" />
     </state>
